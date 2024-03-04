@@ -1,6 +1,10 @@
+
+@include('layouts.navbar_start')
+
 @extends('layouts.app')
 @extends('layouts.head')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -10,6 +14,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ url('login') }}">
                         @csrf
+                        @method('POST')
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
@@ -26,7 +31,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ ('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -62,6 +67,10 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <p class="mt-10 text-center text-sm text-gray-500">
+                                    Not a member?
+                                    <a href="{{route('show.register')}}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Create Account</a>
+                                </p>
                             </div>
                         </div>
                     </form>
@@ -70,4 +79,5 @@
         </div>
     </div>
 </div>
+
 @endsection

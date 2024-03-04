@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('utilisateur_id')->constrained()->onDelete('cascade');
+            $table->timestamp('date_reservation')->nullable();
+            $table->enum('status', ['rejected', 'cancelled', 'pending', 'accepted'])->default('pending');
+            $table->float('price');
+            $table->text('description')->nullable();
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('offers');
     }
 };

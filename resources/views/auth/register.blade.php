@@ -1,3 +1,6 @@
+
+@include('layouts.navbar_start')
+
 @extends('layouts.app')
 
 @extends('layouts.head')
@@ -17,7 +20,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name_user" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -71,9 +74,16 @@
                             </div>
                         </div>
                     </form>
+                    <p class="mt-10 text-center text-sm text-gray-500">
+                        Not a member?
+                        <a href="{{route('show.login')}}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Create Account</a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@include('layouts.footer')
 @endsection
+

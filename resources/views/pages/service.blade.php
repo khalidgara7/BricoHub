@@ -1,3 +1,5 @@
+@include('layouts.topnavbar')
+@include('layouts.navbar_start')
 @extends('layouts.head')
 
 @section('title')
