@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\Category\StoreCategoryRequest;
-use App\Models\Categorie;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
-    public function Show_Categories()
+    public function index()
     {
         $categories = Category::paginate(5);
         $total_categories = Category::count();
@@ -25,20 +24,29 @@ class CategoriesController extends Controller
     public function store(StoreCategoryRequest $request)
     {
 
-       $request->validated();
-        $destinationPath = 'public/images/categories';
-        $extension = $request->file("image")->getClientOriginalExtension();
-        $newFilename = date('YmdHism') . "." . $extension;
-        $request->file("image")->storeAs($destinationPath, $newFilename);
+        $data = $request->validated();
+        $fileName = time() . $request->name . '.' . $request->image->extension();
+        $request->image->storeAs('public/images/category', $fileName);
+        $data['image'] = $fileName;
 
-        Category::create($request->all());
-        return redirect("/category")->with("success", "Category Add successfully");
+        $category = Category::create($data);
+        if ($category) {
+            return redirect()->route('category.index')->with('success', 'Category created successfully.');
+        } else {
+            return back()->withInput()->with('error', 'Failed to create the category.');
+        }
     }
 
-    public function delete(Category $categories)
+    public function destroy(string $id)
     {
-        $categories->delete();
-        return redirect("/category")->with("success", "categories deleted");
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        if ($category) {
+            return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
+        } else {
+            return back()->withInput()->with('error', 'Failed to update the category.');
+        }
     }
 
     public function show_edit_category()

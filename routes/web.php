@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.index');
+    return view('front.index');
 });
 Route::get('/about', function () {
     return view('pages.about');
@@ -28,10 +29,14 @@ Route::get('/project', function () {
     return view('pages.project');
 });
 
-
+Route::get('/dashboard', function () {
+    return view('Admin.index');
+});
 
 Route::get('/register',[RegisterController::class,'showregistre'])->name('show.register');
 Route::post('/register',[RegisterController::class, 'register'])->name('register');
 Route::get('/login',[LoginController::class,'showlogin'])->name('show.login');
 Route::post('/login',[LoginController::class,'login'])->name('login');
 
+
+Route::resource('category', CategoriesController::class);
