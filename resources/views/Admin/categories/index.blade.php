@@ -114,14 +114,18 @@
                                                 </div>
 
                                                 <div class="nk-tb-col nk-tb-col-tools">
+
                                                     <ul class="nk-tb-actions gx-1">
+
                                                         <li class="nk-tb-action-hidden">
-                                                            <a class="btn btn-trigger btn-icon" data-bs-toggle="modal" href="#editCategory" data-bs-placement="top" title="Edit">
+                                                            <a class="btn btn-trigger btn-icon" 
+                                                               href="{{ route('category.edit', [$category]) }}"
+                                                               data-bs-placement="top" title="Edit">
                                                                 <em class="icon ni ni-edit-fill"></em>
                                                             </a>
                                                         </li>
-                                                        <li class="nk-tb-action-hidden">
 
+                                                        <li class="nk-tb-action-hidden">
                                                             <form class="mx-3"
                                                                   action="{{ route('category.destroy', $category) }}"
                                                                   method="POST">
@@ -131,7 +135,9 @@
                                                                     onclick="return confirm('Do you really want to Delete ?');"
                                                                     type="submit">
                                                                     <em
-                                                                        class="icon ni ni-trash-fill"></em></button>
+                                                                        class="icon ni ni-trash-fill">
+                                                                    </em>
+                                                                </button>
                                                             </form>
 
                                                         </li>
@@ -140,7 +146,7 @@
                                                                 <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                                 <div class="dropdown-menu dropdown-menu-end">
                                                                     <ul class="link-list-opt no-bdr">
-                                                                        <li><a data-bs-toggle="modal" href="#editCategory"><em class="icon ni ni-edit-fill"></em><span>Edit Category</span></a></li>
+                                                                        <li><a data-bs-toggle="modal" href="{{ route('category.edit', [$category->id]) }}"><em class="icon ni ni-edit-fill"></em><span>Edit Category</span></a></li>
                                                                         <li>
                                                                             <form class="mx-2"
                                                                                   action="{{ route('category.destroy', $category) }}"
@@ -173,9 +179,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="mt-4">
-        {{ $categories->links() }}
     </div>
     <!-- content @e -->
 @endsection
