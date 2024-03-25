@@ -12,6 +12,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
+
         $categories = Category::paginate(5);
         $total_categories = Category::count();
         return view('Admin.categories.index',compact('categories','total_categories'));
@@ -62,7 +63,7 @@ class CategoriesController extends Controller
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
                 Storage::delete('public/images/category' . $category->image);
-                
+
             $fileName = time() . '_' . $request->name . '.' . $request->image->extension();
             $request->image->storeAs('public/images/category', $fileName);
             $data['image'] = $fileName;
@@ -75,6 +76,5 @@ class CategoriesController extends Controller
             return back()->withInput()->with('error', 'Failed to update the category.');
         }
     }
-
 
 }

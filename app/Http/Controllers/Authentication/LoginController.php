@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Authentication;
 
 use App\Http\Controllers\Controller;
-use App\Models\Utilisateur;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,17 +21,18 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        $user = Utilisateur::where('email', $credentials['email'])->first();
+        $user = User::where('email', $credentials['email'])->first();
 
         if ($user && Hash::check($credentials['password'], $user->password)) {
             $request->session()->regenerate();
             $request->session()->put("user", $user);
 
-            return redirect()->route('dashboard');
+            return redirect('/dashboard');
 
         } else {
             // Authentication failed
-            return redirect()->back()->withInput($request->only('email'));
+            return redirect()->back()->withInput($request->only('email'))
+                ->withErrors(array('password' => 'Invalid email or password.'));
         }
     }
 

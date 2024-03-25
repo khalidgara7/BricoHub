@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="card-amount">
                                                     <span class="amount">
-                                                        49,595.34
+                                                        {{$total_categories}}
                                                         <span class="currency currency-usd">
                                                             Category
                                                         </span>
@@ -118,7 +118,7 @@
                                                     <ul class="nk-tb-actions gx-1">
 
                                                         <li class="nk-tb-action-hidden">
-                                                            <a class="btn btn-trigger btn-icon" 
+                                                            <a class="btn btn-trigger btn-icon"
                                                                href="{{ route('category.edit', [$category]) }}"
                                                                data-bs-placement="top" title="Edit">
                                                                 <em class="icon ni ni-edit-fill"></em>
