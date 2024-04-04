@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('user_id')->unique();
             $table->string('cin')->unique();
+            $table->string('phone_number')->unique();
+            $table->string('age');
             $table->string('skill');
+            $table->string('ville');
+            $table->string('image');
+            $table->string('bio');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

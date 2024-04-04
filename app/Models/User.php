@@ -29,6 +29,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
+
         'password',
         'remember_token',
     ];
@@ -46,6 +47,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'user_role');
+    }
+
+    public function Employee()
+    {
+        return $this->hasOne(Employee::class);
     }
 
     public function isAdmin()

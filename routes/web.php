@@ -3,6 +3,8 @@
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\Employee\EmployeeController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +42,9 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 
 
 Route::resource('category', CategoriesController::class);
+
+Route::resource('user', UsersController::class);
+
+// Employee Routes...
+Route::get('/Employee/form', [EmployeeController::class, 'showEmployeeForm'])->name('Employee.form');
+Route::post('/Employee/store', [EmployeeController::class, 'storeEmployeeInfo'])->name('Employee.store');

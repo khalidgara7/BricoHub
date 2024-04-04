@@ -1,6 +1,9 @@
 
 @include('layouts.navbar_start')
 
+@section('title')
+    Login
+@endsection
 @extends('layouts.app')
 @extends('layouts.head')
 @section('content')

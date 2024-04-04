@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    protected $fillable = ['cin', 'skill'];
+    protected $table = 'employees';
+    protected $fillable = ['user_id','cin', 'phone_number' , 'skill', 'age', 'ville', 'image', 'bio'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
+
+

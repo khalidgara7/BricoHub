@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->dateTime('date_inscription');
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
@@ -28,4 +27,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+
 };

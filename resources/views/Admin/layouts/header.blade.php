@@ -101,7 +101,8 @@
                                     <li class="nk-menu-item">
                                         <a href="{{route('category.create')}}" class="nk-menu-link"><span class="nk-menu-text">Create category</span></a>
                                     </li>
-                                </ul><!-- .nk-menu-sub -->
+                                </ul>
+                                <!-- .nk-menu-sub -->
                             </li><!-- .nk-menu-item -->
                             <li class="nk-menu-item has-sub">
                                 <a href="#" class="nk-menu-link nk-menu-toggle">
@@ -109,19 +110,7 @@
                                 </a>
                                 <ul class="nk-menu-sub">
                                     <li class="nk-menu-item">
-                                        <a href="html/user-list-regular.html" class="nk-menu-link"><span class="nk-menu-text">User List - Regular</span></a>
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/user-list-compact.html" class="nk-menu-link"><span class="nk-menu-text">User List - Compact</span></a>
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/user-details-regular.html" class="nk-menu-link"><span class="nk-menu-text">User Details - Regular</span></a>
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/user-profile-regular.html" class="nk-menu-link"><span class="nk-menu-text">User Profile - Regular</span></a>
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/user-card.html" class="nk-menu-link"><span class="nk-menu-text">User Contact - Card</span> </a>
+                                        <a href="{{route('user.index')}}" class="nk-menu-link"><span class="nk-menu-text"> User List </span></a>
                                     </li>
                                 </ul><!-- .nk-menu-sub -->
                             </li><!-- .nk-menu-item -->

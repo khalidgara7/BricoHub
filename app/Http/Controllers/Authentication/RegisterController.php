@@ -27,14 +27,14 @@ class RegisterController extends Controller
         if ($user) {
             auth()->login($user);
             if ($user->isEmployee()) {
-                return redirect()->route('Employeur.form', $user->id);
+                return redirect()->route('Employee.form');
             } elseif ($user->isEmployeur()) {
                 return redirect('/');
             }
         } else {
-            return back()->with('error', 'Registration failed.');
+            return back()->with('Error', 'Registration failed.');
         }
-        return redirect('auth/register')->with('error', 'Registration failed.');
+        return redirect('auth/register')->with('Error', 'Registration failed.');
     }
 
 }
