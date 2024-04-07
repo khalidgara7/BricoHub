@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['user_id','title', 'description', 'price', 'image', 'category_id','years_of_experience','status'];
 
     public function offers()
     {
         return $this->belongsToMany(Offer::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class, 'user_id');
     }
 }
