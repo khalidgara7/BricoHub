@@ -15,10 +15,10 @@ class ServiceController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('front.services.create',compact('categories'));
+        return view('front.services.create', compact('categories'));
     }
 
-    public function store(ServiceStoreRequest $request)
+    public function store(ServiceStoreRequest  $request)
     {
 
         $data = $request->validated();
@@ -37,20 +37,18 @@ class ServiceController extends Controller
     public function edit(Service $service)
     {
         $categories = Category::all();
-        return view('front.services.update',compact('service','categories'));
+        return view('front.services.update', compact('service', 'categories'));
     }
 
     public function update(ServiceUpdateRequest $request, Service $service)
     {
         $data = $request->validated();
-        
-        $data = $request->validated();
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
-                Storage::delete('public/images/category' . $service->image);
+            Storage::delete('public/images/services/' . $service->image);
 
             $fileName = time() . '_' . $data['title'] . '.' . $request->image->extension();
-            $request->image->storeAs('public/images/category', $fileName);
+            $request->image->storeAs('public/images/services', $fileName);
             $data['image'] = $fileName;
         }
 
