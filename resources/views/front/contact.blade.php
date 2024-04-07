@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('layouts.master')
 
 @section('title')
     Contact
@@ -6,12 +6,6 @@
 
 @section('content')
     <body>
-
-
-
-
-
-
     <!-- Contact Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">

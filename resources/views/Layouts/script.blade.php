@@ -1,5 +1,3 @@
-<!-- Back to Top -->
-<a href="#" class="btn btn-primary rounded-circle border-3 back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
 <!-- JavaScript Libraries -->

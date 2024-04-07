@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('ville');
             $table->string('image');
             $table->string('bio');
+            $table->enum('status', ['unavailable', 'available'])->default('available');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

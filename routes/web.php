@@ -4,6 +4,7 @@ use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\Employee\EmployeeController;
+use App\Http\Controllers\Employee\EmployeeProfileController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,13 +23,16 @@ Route::get('/', function () {
     return view('front.index');
 });
 Route::get('/about', function () {
-    return view('pages.about');
+    return view('front.about');
 });
 Route::get('/services', function () {
-    return view('pages.service');
+    return view('front.service');
 });
 Route::get('/project', function () {
-    return view('pages.project');
+    return view('front.project');
+});
+Route::get('/contact', function () {
+    return view('front.contact');
 });
 
 Route::get('/dashboard', function () {
@@ -42,9 +46,13 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 
 
 Route::resource('category', CategoriesController::class);
-
 Route::resource('user', UsersController::class);
+
 
 // Employee Routes...
 Route::get('/Employee/form', [EmployeeController::class, 'showEmployeeForm'])->name('Employee.form');
 Route::post('/Employee/store', [EmployeeController::class, 'storeEmployeeInfo'])->name('Employee.store');
+
+
+// Employee Profile Routes...
+Route::get('/profile', [EmployeeProfileController::class, 'index'])->name('profile.index');

@@ -1,9 +1,6 @@
-
-
 <head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
-    
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -22,8 +19,15 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets({{ asset('assets/css/bootstrap.min.css') }})" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="assets({{ asset('assets/css/style.css') }})" rel="stylesheet">
+
+    {{-- <link rel="shortcut icon" href="{{asset('assets/images/fav.jpg')}}"> --}}
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/fontawsom-all.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}" />
+
+    @yield('css')
 </head>
