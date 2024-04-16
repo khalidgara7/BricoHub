@@ -69,8 +69,7 @@
     <!-- Carousel End -->
 
 
-
-    <!-- About Start -->
+    <!-- About Categories -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-5">
@@ -88,111 +87,39 @@
                 <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay=".6s">
                     <div class="about-item overflow-hidden">
                         <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">
-                            About BricoKit</h5>
+                            About Categories Bricohub</h5>
                         <h1 class="display-5 mb-2">World Best Brico Control Services Since 2008</h1>
                         <p class="fs-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipiscing
                             elit sed do eiu smod tempor incididunt ut labore dolore magna aliqua.Quis ipsum suspen disse
                             ultrices gravida Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
                         <div class="row">
+                            @foreach($categories as $category)
+
                             <div class="col-3">
                                 <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-city fa-4x text-primary"></i>
+                                    <div class="">
+                                        <span class="tb-product">
+                                            <img src="{{ asset('storage/images/category/' . $category->image) }}"
+                                                alt="" class="img-fluid rounded-circle"
+                                                style="width: 100px; height: 100px;">
+                                        </span>
                                     </div>
                                     <div class="my-2">
-                                        <h5>Building</h5>
-                                        <h5>Cleaning</h5>
+                                        <h5>{{$category->name}}</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-school fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="my-2">
-                                        <h5>Education</h5>
-                                        <h5>center</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-warehouse fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="my-2">
-                                        <h5>Warehouse</h5>
-                                        <h5>Cleaning</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-hospital fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="my-2">
-                                        <h5>Hospital</h5>
-                                        <h5>Cleaning</h5>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">Find
-                            Services</button>
+                        <a href="{{route('list-categories')}}" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">Find
+                            Categories</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Categories End -->
 
-
-    <!-- Category Start -->
-    <div class="container-fluid services py-5">
-        <div class="container text-center py-5">
-            <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">
-                    Our Categories
-                </h5>
-                <h1 class="display-5">Common Control Categories</h1>
-            </div>
-            <div class="row g-5">
-                @foreach ($categories as $category)
-                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="bg-light  p-5 ">
-                            <div class="d-flex justify-content-center mb-4">
-                                <div class="">
-                                    <span class="tb-product">
-                                        <img src="{{ asset('storage/images/category/' . $category->image) }}"
-                                            alt="" class="img-fluid rounded-circle"
-                                            style="width: 100px; height: 100px;">
-                                    </span>
-                                </div>
-                            </div>
-                            <h4>{{ $category->name }}</h4>
-                            <p class="fs-5"><?php
-                            $description = $category->description;
-                            $words = str_word_count($description, 1);
-                            $shortDescription = implode(' ', array_slice($words, 0, 3));
-                            echo $shortDescription . (count($words) > 3 ? '...' : '');
-                            ?>
-                            </p>
-                            <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn
-                                More</button>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-        </div>
-    </div>
-    <!-- Category End -->
 
 
     <!-- Project Start -->

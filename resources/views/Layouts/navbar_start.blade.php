@@ -15,8 +15,8 @@
                     <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
                     <a href="{{url('/about')}}" class="nav-item nav-link">About</a>
                     <a href="{{ route('profile.index') }}" class="nav-item nav-link">Profile</a>
-                    <a href="{{url('/services')}}" class="nav-item nav-link">Catgories</a>
-                    <a href="{{url('/project')}}" class="nav-item nav-link">Services</a>
+                    <a href="{{route('list-services')}}" class="nav-item nav-link">Services</a>
+                    <a href="{{route('list-categories')}}" class="nav-item nav-link">Categories</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0 bg-primary">

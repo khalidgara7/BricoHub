@@ -7,7 +7,7 @@
 @section('content')
 
     <!-- Get In Touch Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay=".3s">
+    <div class="container-fluid py-2 wow fadeInUp" data-wow-delay=".3s">
         <div class="container py-5">
             <div class="bg-light px-4 py-5 rounded">
                 <div class="text-center">
@@ -50,13 +50,7 @@
 
     <!-- Project Start -->
     <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our
-                    Services
-                </h5>
-                <h1 class="display-5">Our recently Service</h1>
-            </div>
+        <div class="container ">
             <div class="row g-5">
 
                 <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
