@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function home()
     {
         $categories = Category::latest()->take(4)->get();
-        $services = Service::all();
+        $services = Service::latest()->take(6)->get();
         $Employee = Employee::all();
         return view('front.index', compact('categories', 'services', 'Employee'));
     }
