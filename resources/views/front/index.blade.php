@@ -31,8 +31,8 @@
                     <img src="img/carousel-2.jpg" class="img-fluid w-100" alt="First slide">
                     <div class="carousel-caption">
                         <div class="container carousel-content">
-                            <h4 class="text-white mb-4 animated slideInDown">No 1 Pest Control Services</h4>
-                            <h1 class="text-white display-1 mb-4 animated slideInDown">Enjoy Your Home Totally Pest Free
+                            <h4 class="text-white mb-4 animated slideInDown">No 1 Brico Control Services</h4>
+                            <h1 class="text-white display-1 mb-4 animated slideInDown">Enjoy Your Home Totally Brico Free
                             </h1>
                             <a href="" class="me-2"><button type="button"
                                     class="px-5 py-3 btn btn-primary border-2 rounded-pill animated slideInDown">Read
@@ -44,8 +44,8 @@
                     <img src="img/carousel-1.jpg" class="img-fluid w-100" alt="Second slide">
                     <div class="carousel-caption">
                         <div class="container carousel-content">
-                            <h4 class="text-white mb-4 animated slideInDown">No 1 Pest Control Services</h4>
-                            <h1 class="text-white display-1 mb-4 animated slideInDown">Enjoy Your Home Totally Pest Free
+                            <h4 class="text-white mb-4 animated slideInDown">No 1 Brico Control Services</h4>
+                            <h1 class="text-white display-1 mb-4 animated slideInDown">Enjoy Your Home Totally Brico Free
                             </h1>
                             <a href="" class="me-2"><button type="button"
                                     class="px-5 py-3 btn btn-primary border-2 rounded-pill animated slideInDown">Read
@@ -69,47 +69,6 @@
     <!-- Carousel End -->
 
 
-    <!-- Get In Touch Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay=".3s">
-        <div class="container py-5">
-            <div class="bg-light px-4 py-5 rounded">
-                <div class="text-center">
-                    <h1 class="display-5 mb-5">Find Your Pest Control Services</h1>
-                </div>
-                <form class="text-center mb-4" action="#">
-                    <div class="row g-4">
-                        <div class="col-xl-10 col-lg-12">
-                            <div class="row g-4">
-                                <div class="col-md-6 col-xl-3">
-                                    <select class="form-select p-3 border-0">
-                                        <option value="Type Of Service" class="">Type Of Service</option>
-                                        <option value="Pest Control-2">Pest Control-2</option>
-                                        <option value="Pest Control-3">Pest Control-3</option>
-                                        <option value="Pest Control-4">Pest Control-4</option>
-                                        <option value="Pest Control-5">Pest Control-5</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-xl-3">
-                                    <input type="text" class="form-control p-3 border-0" placeholder="Name">
-                                </div>
-                                <div class="col-md-6 col-xl-3">
-                                    <input type="text" class="form-control p-3 border-0" placeholder="Phone">
-                                </div>
-                                <div class="col-md-6 col-xl-3">
-                                    <input type="email" class="form-control p-3 border-0" placeholder="Email">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-12">
-                            <input type="button" class="btn btn-primary w-100 p-3 border-0" value="GET STARTED">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Get In Touch End -->
-
 
     <!-- About Start -->
     <div class="container-fluid py-5">
@@ -122,15 +81,15 @@
                         <img src="img/about-img.jpg" class="img-fluid h-100" alt="img">
                         <div class="bg-white experiences">
                             <h1 class="display-3">20</h1>
-                            <h6 class="fw-bold">Years Of Experiences</h6>
+                            <h6 class="fw-bold">Categories</h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay=".6s">
                     <div class="about-item overflow-hidden">
                         <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">
-                            About PestKit</h5>
-                        <h1 class="display-5 mb-2">World Best Pest Control Services Since 2008</h1>
+                            About BricoKit</h5>
+                        <h1 class="display-5 mb-2">World Best Brico Control Services Since 2008</h1>
                         <p class="fs-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipiscing
                             elit sed do eiu smod tempor incididunt ut labore dolore magna aliqua.Quis ipsum suspen disse
                             ultrices gravida Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
@@ -204,19 +163,28 @@
                 <h1 class="display-5">Common Control Categories</h1>
             </div>
             <div class="row g-5">
-                @foreach($categories as $category)
+                @foreach ($categories as $category)
                     <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
                         <div class="bg-light  p-5 ">
                             <div class="d-flex justify-content-center mb-4">
                                 <div class="">
-                                     <span class="tb-product">
-                                        <img src="{{ asset('storage/images/category/' . $category->image) }}" alt="" class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
-                                     </span>
+                                    <span class="tb-product">
+                                        <img src="{{ asset('storage/images/category/' . $category->image) }}"
+                                            alt="" class="img-fluid rounded-circle"
+                                            style="width: 100px; height: 100px;">
+                                    </span>
                                 </div>
                             </div>
-                            <h4>{{$category->name}}</h4>
-                            <p class="fs-5">{{$category->description}}</p>
-                            <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn More</button>
+                            <h4>{{ $category->name }}</h4>
+                            <p class="fs-5"><?php
+                            $description = $category->description;
+                            $words = str_word_count($description, 1);
+                            $shortDescription = implode(' ', array_slice($words, 0, 3));
+                            echo $shortDescription . (count($words) > 3 ? '...' : '');
+                            ?>
+                            </p>
+                            <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn
+                                More</button>
                         </div>
                     </div>
                 @endforeach
@@ -231,27 +199,29 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Services
+                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our
+                    Services
                 </h5>
                 <h1 class="display-5">Our recently Service</h1>
             </div>
             <div class="row g-5">
-                @foreach($services as $service)
-                <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="project-item">
-                        <div class="project-left bg-dark">
-                            <h4> khalid</h4>
-                        </div>
-                        <div class="project-right bg-dark">
-                            <div class="project-content">
-                                <p>  </p>
-                                <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn More</button>
+                @foreach ($services as $service)
+                    <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="project-item">
+                            <div class="project-left bg-dark">
+                                <h4> khalid</h4>
                             </div>
+                            <div class="project-right bg-dark">
+                                <div class="project-content">
+                                    <p> </p>
+                                    <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn
+                                        More</button>
+                                </div>
+                            </div>
+                            <img src="img/project-1.jpg" class="img-fluid h-100" alt="img">
+                            <a href="" class="fs-4 fw-bold text-center"></a>
                         </div>
-                        <img src="img/project-1.jpg" class="img-fluid h-100" alt="img">
-                        <a href="" class="fs-4 fw-bold text-center"></a>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -346,109 +316,7 @@
     <!-- Blog End -->
 
 
-    <!-- Call To Action Start -->
-    <div class="container-fluid py-5 call-to-action wow fadeInUp" data-wow-delay=".3s" style="margin: 6rem 0;">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <img src="img/action.jpg" class="img-fluid w-100 rounded-circle p-5" alt="">
-                </div>
-                <div class="col-lg-6 my-auto">
-                    <div class="text-start mt-4">
-                        <h1 class="pb-4 text-white">Sign Up To Our Newsletter To Get The Latest Offers</h1>
-                    </div>
-                    <form method="post" action="index.html">
-                        <div class="form-group">
-                            <div class="d-flex call-btn">
-                                <input type="search"
-                                    class="form-control py-3 px-4 w-100 border-0 rounded-0 rounded-end rounded-pill"
-                                    name="search-input" value="" placeholder="Enter Your Email Address"
-                                    required="Please enter a valid email" />
-                                <button type="email" value="Search Now!"
-                                    class="btn btn-primary border-0 rounded-pill rounded rounded-start px-5">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Call To Action End -->
 
-
-    <!-- pricing Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Pricing
-                </h5>
-                <h1 class="display-5 w-50 mx-auto">Affordable Pricing Plan For Pest Control Services</h1>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="rounded bg-light pricing-item">
-                        <div class="bg-primary py-3 px-5 text-center rounded-top border-bottom border-dark">
-                            <h2 class="m-0">Basic</h2>
-                        </div>
-                        <div class="px-4 py-5 text-center bg-primary pricing-label mb-2">
-                            <h1 class="mb-0">$60<span class="text-secondary fs-5 fw-normal">/mo</span></h1>
-                            <p class="mb-0">Basic Pest Control</p>
-                        </div>
-                        <div class="p-4 text-center fs-5">
-                            <p><i class="fa fa-check text-success me-2"></i>Household pests Control</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Rodent Control</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Re-Service at No-Charge</p>
-                            <p><i class="fa fa-times text-danger me-2"></i>Termite Control</p>
-                            <p><i class="fa fa-times text-danger me-2"></i>Mosquito Reduction</p>
-                            <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-3">Get
-                                Started</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="rounded bg-light pricing-item">
-                        <div class="bg-dark py-3 px-5 text-center rounded-top border-bottom border-primary">
-                            <h2 class="m-0 text-primary">Standerd</h2>
-                        </div>
-                        <div class="px-4 py-5 text-center bg-dark pricing-label pricing-featured mb-2">
-                            <h1 class="mb-0 text-primary">$80<span class="fs-5 fw-normal">/mo</span></h1>
-                            <p class="mb-0 text-white">Standard Pest Control</p>
-                        </div>
-                        <div class="p-4 text-center fs-5">
-                            <p><i class="fa fa-check text-success me-2"></i>Household pests Control</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Rodent Control</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Re-Service at No-Charge</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Termite Control</p>
-                            <p><i class="fa fa-times text-danger me-2"></i>Mosquito Reduction</p>
-                            <button type="button"
-                                class="btn btn-dark border-0 text-primary rounded-pill px-4 py-3 mt-3">Get Started</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".7s">
-                    <div class="rounded bg-light pricing-item">
-                        <div class="bg-primary py-3 px-5 text-center rounded-top border-bottom border-dark">
-                            <h2 class="m-0">Premium</h2>
-                        </div>
-                        <div class="px-4 py-5 text-center bg-primary pricing-label mb-2">
-                            <h1 class="mb-0">$120<span class="text-secondary fs-5 fw-normal">/mo</span></h1>
-                            <p class="mb-0">Premium Pest Control</p>
-                        </div>
-                        <div class="p-4 text-center fs-5">
-                            <p><i class="fa fa-check text-success me-2"></i>Household pests Control</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Rodent Control</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Re-Service at No-Charge</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Termite Control</p>
-                            <p><i class="fa fa-check text-success me-2"></i>Mosquito Reduction</p>
-                            <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-3">Get
-                                Started</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pricing End -->
 
 
     <!-- Team Start -->
@@ -457,7 +325,7 @@
             <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
                 <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Team
                 </h5>
-                <h1 class="display-5 w-50 mx-auto">Our Team Members</h1>
+                <h1 class="display-5 w-50 mx-auto">Our Members</h1>
             </div>
             <div class="row g-5">
                 <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
@@ -643,6 +511,35 @@
         </div>
     </div>
     <!-- Testiminial End -->
+
+    <!-- Call To Action Start -->
+    <div class="container-fluid py-5 call-to-action wow fadeInUp" data-wow-delay=".3s" style="margin: 6rem 0;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <img src="img/action.jpg" class="img-fluid w-100 rounded-circle p-5" alt="">
+                </div>
+                <div class="col-lg-6 my-auto">
+                    <div class="text-start mt-4">
+                        <h1 class="pb-4 text-white">Sign Up To Our Newsletter To Get The Latest Offers</h1>
+                    </div>
+                    <form method="post" action="index.html">
+                        <div class="form-group">
+                            <div class="d-flex call-btn">
+                                <input type="search"
+                                    class="form-control py-3 px-4 w-100 border-0 rounded-0 rounded-end rounded-pill"
+                                    name="search-input" value="" placeholder="Enter Your Email Address"
+                                    required="Please enter a valid email" />
+                                <button type="email" value="Search Now!"
+                                    class="btn btn-primary border-0 rounded-pill rounded rounded-start px-5">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call To Action End -->
 @endsection
 
 
