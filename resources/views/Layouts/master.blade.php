@@ -5,8 +5,7 @@
 
 <body>
     <!--  navbar -->
-    @include('layouts.topnavbar')
-    @include('layouts.navbar_start')
+    @include('Layouts.navbar_start')
 
     @yield('content')
     @include('layouts.footer')

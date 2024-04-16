@@ -20,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.index');
-});
+
 Route::get('/about', function () {
     return view('front.about');
 });
@@ -39,6 +37,7 @@ Route::get('/contact', function () {
 Route::get('/dashboard', function () {
     return view('Admin.index');
 });
+Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
 Route::get('/register',[RegisterController::class,'showregistre'])->name('show.register');
 Route::post('/register',[RegisterController::class, 'register'])->name('register');
@@ -58,8 +57,8 @@ Route::post('/Employee/store', [EmployeeController::class, 'storeEmployeeInfo'])
 // Employee Profile Routes...
 Route::get('/profile', [EmployeeProfileController::class, 'index'])->name('profile.index');
 
+// Service Routes...
 Route::get('/add-service',[ServiceController::class,'create'])->name('service.create');
 Route::post('/add-service',[ServiceController::class,'store'])->name('service.store');
-
 Route::get('/edit-service/{service}',[ServiceController::class,'edit'])->name('service.edit');
 Route::patch('/edit-service/{service}',[ServiceController::class,'update'])->name('service.update');

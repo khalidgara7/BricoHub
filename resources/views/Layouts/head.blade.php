@@ -22,12 +22,13 @@
     <link href="assets({{ asset('assets/css/bootstrap.min.css') }})" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="assets({{ asset('assets/css/style.css') }})" rel="stylesheet">
 
     {{-- <link rel="shortcut icon" href="{{asset('assets/images/fav.jpg')}}"> --}}
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/fontawsom-all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}" />
+
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 
     @yield('css')
 </head>
