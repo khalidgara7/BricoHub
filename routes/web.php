@@ -50,7 +50,7 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::resource('category', CategoriesController::class);
 Route::resource('user', UsersController::class);
 
-// ListCategories routes
+// ListCategories routes ...
 Route::get('/categories', [ListCategoriesController::class, 'listCategories'])->name('list-categories');
 
 // Employee Routes...
@@ -67,5 +67,5 @@ Route::post('/add-service',[ServiceController::class,'store'])->name('service.st
 Route::get('/edit-service/{service}',[ServiceController::class,'edit'])->name('service.edit');
 Route::patch('/edit-service/{service}',[ServiceController::class,'update'])->name('service.update');
 
-
+// ListServices routes ...
 Route::get('/list-services', [ListServicesController::class, 'listServices'])->name('list-services');
