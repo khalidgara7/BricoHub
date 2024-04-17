@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $fillable = ['user_id','title', 'description', 'price', 'image', 'category_id','years_of_experience','status'];
+    protected $fillable = ['user_id', 'title', 'description', 'price', 'image', 'category_id', 'years_of_experience', 'status'];
 
     public function offers()
     {
@@ -16,6 +16,6 @@ class Service extends Model
 
     public function employee()
     {
-        return $this->belongsTo(Employee::class, 'user_id');
+        return $this->belongsTo(Employee::class, 'user_id', 'user_id');
     }
 }

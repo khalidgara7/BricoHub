@@ -27,8 +27,15 @@ class LoginController extends Controller
         if ($user && Hash::check($credentials['password'], $user->password)) {
             $request->session()->regenerate();
             $request->session()->put("user", $user);
-
-            return redirect('/dashboard');
+            if ($user->isAdmin()) {
+                return redirect('dashboard');
+            }
+            if ($user->isEmployee()) {
+                return redirect('/profile');
+            }
+            if($user->isEmployeur()){
+                return redirect('/');
+            }
 
         } else {
             // Authentication failed

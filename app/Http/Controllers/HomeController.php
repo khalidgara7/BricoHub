@@ -20,8 +20,8 @@ class HomeController extends Controller
     public function home()
     {
         $categories = Category::latest()->take(4)->get();
-        $services = Service::latest()->take(6)->get();
-
+        $services = Service::with('Employee')->latest()->take(6)->get();
+        // dd($services);
 
         $users = User::whereHas('roles', function ($query) {
             $query->where('name', 'employee');

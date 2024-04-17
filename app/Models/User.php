@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function Employee()
     {
-        return $this->hasOne(Employee::class);
+        return $this->hasOne(Employee::class, 'user_id');
     }
 
     public function isAdmin()

@@ -140,15 +140,15 @@
                     style="width: 100px; height: 200px;">
                     <div class="rounded-bottom bg-light">
                         <div class="d-flex justify-content-between p-4 pb-2">
-                            <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i>By Admin</span>
-                            <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>10 Feb, 2023</span>
+                            <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i> {{$service->employee->user->name}} </span>
+                            <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>{{$service->employee->user->created_at->format('Y-m-d')}}</span>
                         </div>
                         <div class="px-4 pb-0">
                             <h4>{{$service->name}}</h4>
                             <p>{{$service->description}}</p>
                         </div>
                         <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
-                            <a href="#" type="button" class="btn btn-primary border-0">Learn More</a>
+                            <a href="#" type="button" class="btn btn-primary border-0"> View </a>
                             <a href="#" class="my-auto btn-primary border-0"><i class="fa fa-comments me-2"></i>23
                                 Comments</a>
                         </div>
