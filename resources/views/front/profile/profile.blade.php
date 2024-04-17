@@ -208,15 +208,23 @@
                                                                 <h4 class="mb-1 me-1">{{$service->price}} MAD</h4>
                                                                 <span class="text-danger"><s>{{$service->price + 30}} mad</s></span>
                                                             </div>
+                                                            
                                                             <h6 class="text-success">{{$service->status}}</h6>
+
                                                             <div class="d-flex flex-column mt-4">
-                                                                <a href="{{route('service.edit',$service)}}" class="btn btn-primary btn-sm"
-                                                                    >Edit</a>
+                                                                <a href="{{route('service.edit',$service)}}" class="btn btn-primary btn-sm"> Edit </a>
+                                                            
+                                                            <form class="d-flex flex-column mt-4"
+                                                                action="{{ route('service.destroy', $service) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')        
                                                                 <button class="btn btn-outline-danger btn-sm mt-2"
-                                                                    type="button">
+                                                                    type="submit">
                                                                     Delete
                                                                 </button>
-                                                            </div>
+                                                            </form>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>

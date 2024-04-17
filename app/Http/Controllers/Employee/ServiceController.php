@@ -55,4 +55,16 @@ class ServiceController extends Controller
         $service->update($data);
         return redirect()->route('profile.index');
     }
+
+    public function destroy(string $id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete();
+    
+        if ($service) {
+            return redirect()->route('profile.index')->with('success', 'Service deleted successfully.');
+        } else {
+            return back()->withInput()->with('error', 'Failed to delete the service.');
+        }
+    }
 }

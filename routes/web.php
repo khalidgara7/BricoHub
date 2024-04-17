@@ -66,6 +66,7 @@ Route::get('/add-service',[ServiceController::class,'create'])->name('service.cr
 Route::post('/add-service',[ServiceController::class,'store'])->name('service.store');
 Route::get('/edit-service/{service}',[ServiceController::class,'edit'])->name('service.edit');
 Route::patch('/edit-service/{service}',[ServiceController::class,'update'])->name('service.update');
+Route::delete('/delete-service/{id}',[ServiceController::class,'destroy'])->name('service.destroy');
 
 // ListServices routes ...
 Route::get('/list-services', [ListServicesController::class, 'listServices'])->name('list-services');
