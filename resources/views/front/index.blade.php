@@ -88,7 +88,7 @@
                     <div class="about-item overflow-hidden">
                         <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">
                             About Categories Bricohub</h5>
-                        <h1 class="display-5 mb-2">World Best Brico Control Services Since 2008</h1>
+                        <h1 class="display-5 mb-2">World Best Brico Control Services Since 2024</h1>
                         <p class="fs-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipiscing
                             elit sed do eiu smod tempor incididunt ut labore dolore magna aliqua.Quis ipsum suspen disse
                             ultrices gravida Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
@@ -126,50 +126,18 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our
-                    Services
+                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Services
                 </h5>
-                <h1 class="display-5">Our recently Service</h1>
-            </div>
-            <div class="row g-5">
-                @foreach ($services as $service)
-                    <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="project-item">
-                            <div class="project-left bg-dark">
-                                <h4> khalid</h4>
-                            </div>
-                            <div class="project-right bg-dark">
-                                <div class="project-content">
-                                    <p> </p>
-                                    <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn
-                                        More</button>
-                                </div>
-                            </div>
-                            <img src="img/project-1.jpg" class="img-fluid h-100" alt="img">
-                            <a href="" class="fs-4 fw-bold text-center"></a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- Services End -->
-
-
-    <!-- Services Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Blog
-                </h5>
-                <h1 class="display-5">Latest Blog & News</h1>
+                <h1 class="display-5">Latest Services & News</h1>
             </div>
 
             <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay=".5s">
 
                 @foreach ($services as $service)
                 <div class="blog-item">
-                    <img src="{{ asset('storage/images/services/'. $service->image) }}" class="img-fluid w-100 rounded-top" alt="">
+                    <img src="{{ asset('storage/images/services/'. $service->image) }}" 
+                    class="img-fluid w-100 rounded-top" alt=""
+                    style="width: 100px; height: 200px;">
                     <div class="rounded-bottom bg-light">
                         <div class="d-flex justify-content-between p-4 pb-2">
                             <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i>By Admin</span>
@@ -195,25 +163,26 @@
 
 
 
-
-
     <!-- Team Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Team
+                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Employees
                 </h5>
                 <h1 class="display-5 w-50 mx-auto">Our Members</h1>
             </div>
             <div class="row g-5">
+                @foreach($users as $user)
+
                 <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
                     <div class="rounded team-item">
-                        <img src="img/team-1..jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
+                        <img src="{{ asset('storage/images/employee/' . $user->employee->image) }}" class="img-fluid w-100 rounded-top border border-bottom-0"
                             alt="">
                         <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
+                            <span class="fs-4 fw-bold">{{$user->name}}</span>
+                            <p class="text-muted mb-0">{{$user->employee->skill}}</p>
                         </div>
+                        
                         <div class="team-icon d-flex flex-column ">
                             <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
@@ -222,54 +191,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="rounded team-item">
-                        <img src="img/team-2.jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
-                            alt="">
-                        <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
-                        </div>
-                        <div class="team-icon d-flex flex-column ">
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".7s">
-                    <div class="rounded team-item">
-                        <img src="img/team-3.jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
-                            alt="">
-                        <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
-                        </div>
-                        <div class="team-icon d-flex flex-column ">
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".9s">
-                    <div class="rounded team-item">
-                        <img src="img/team-4.jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
-                            alt="">
-                        <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
-                        </div>
-                        <div class="team-icon d-flex flex-column ">
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>

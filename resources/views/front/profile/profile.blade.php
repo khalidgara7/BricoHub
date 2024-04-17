@@ -65,7 +65,7 @@
 
                                     <div class="col-md-12 home-dat">
                                         <div class="detal-jumbo">
-                                            <h3>Hellow I'm {{ auth()->user()->employee->skill }}</h3>
+                                            <h3>Hello I'm {{ auth()->user()->employee->skill }}</h3>
                                             <p>{{ auth()->user()->employee->bio }}
                                             </p>
                                         </div>
@@ -208,7 +208,7 @@
                                                                 <h4 class="mb-1 me-1">{{$service->price}} MAD</h4>
                                                                 <span class="text-danger"><s>{{$service->price + 30}} mad</s></span>
                                                             </div>
-                                                            
+
                                                             <h6 class="text-success">{{$service->status}}</h6>
 
                                                             <div class="d-flex flex-column mt-4">
