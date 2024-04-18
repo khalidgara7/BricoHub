@@ -69,8 +69,7 @@
     <!-- Carousel End -->
 
 
-
-    <!-- About Start -->
+    <!-- About Categories -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-5">
@@ -88,234 +87,79 @@
                 <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay=".6s">
                     <div class="about-item overflow-hidden">
                         <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">
-                            About BricoKit</h5>
-                        <h1 class="display-5 mb-2">World Best Brico Control Services Since 2008</h1>
+                            About Categories Bricohub</h5>
+                        <h1 class="display-5 mb-2">World Best Brico Control Services Since 2024</h1>
                         <p class="fs-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipiscing
                             elit sed do eiu smod tempor incididunt ut labore dolore magna aliqua.Quis ipsum suspen disse
                             ultrices gravida Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
                         <div class="row">
+                            @foreach($categories as $category)
+
                             <div class="col-3">
                                 <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-city fa-4x text-primary"></i>
+                                    <div class="">
+                                        <span class="tb-product">
+                                            <img src="{{ asset('storage/images/category/' . $category->image) }}"
+                                                alt="" class="img-fluid rounded-circle"
+                                                style="width: 100px; height: 100px;">
+                                        </span>
                                     </div>
                                     <div class="my-2">
-                                        <h5>Building</h5>
-                                        <h5>Cleaning</h5>
+                                        <h5>{{$category->name}}</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-school fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="my-2">
-                                        <h5>Education</h5>
-                                        <h5>center</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-warehouse fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="my-2">
-                                        <h5>Warehouse</h5>
-                                        <h5>Cleaning</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="text-center">
-                                    <div class="p-4 bg-dark rounded d-flex"
-                                        style="align-items: center; justify-content: center;">
-                                        <i class="fas fa-hospital fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="my-2">
-                                        <h5>Hospital</h5>
-                                        <h5>Cleaning</h5>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">Find
-                            Services</button>
+                        <a href="{{route('list-categories')}}" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">Find
+                            Categories</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Categories End -->
 
 
-    <!-- Category Start -->
-    <div class="container-fluid services py-5">
-        <div class="container text-center py-5">
-            <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">
-                    Our Categories
-                </h5>
-                <h1 class="display-5">Common Control Categories</h1>
-            </div>
-            <div class="row g-5">
-                @foreach ($categories as $category)
-                    <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="bg-light  p-5 ">
-                            <div class="d-flex justify-content-center mb-4">
-                                <div class="">
-                                    <span class="tb-product">
-                                        <img src="{{ asset('storage/images/category/' . $category->image) }}"
-                                            alt="" class="img-fluid rounded-circle"
-                                            style="width: 100px; height: 100px;">
-                                    </span>
-                                </div>
-                            </div>
-                            <h4>{{ $category->name }}</h4>
-                            <p class="fs-5"><?php
-                            $description = $category->description;
-                            $words = str_word_count($description, 1);
-                            $shortDescription = implode(' ', array_slice($words, 0, 3));
-                            echo $shortDescription . (count($words) > 3 ? '...' : '');
-                            ?>
-                            </p>
-                            <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn
-                                More</button>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
 
-        </div>
-    </div>
-    <!-- Category End -->
-
-
-    <!-- Project Start -->
+    <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our
-                    Services
+                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Services
                 </h5>
-                <h1 class="display-5">Our recently Service</h1>
+                <h1 class="display-5">Latest Services & News</h1>
             </div>
-            <div class="row g-5">
-                @foreach ($services as $service)
-                    <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="project-item">
-                            <div class="project-left bg-dark">
-                                <h4> khalid</h4>
-                            </div>
-                            <div class="project-right bg-dark">
-                                <div class="project-content">
-                                    <p> </p>
-                                    <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3">Learn
-                                        More</button>
-                                </div>
-                            </div>
-                            <img src="img/project-1.jpg" class="img-fluid h-100" alt="img">
-                            <a href="" class="fs-4 fw-bold text-center"></a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- Project End -->
 
-
-    <!-- Blog Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Blog
-                </h5>
-                <h1 class="display-5">Latest Blog & News</h1>
-            </div>
             <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay=".5s">
+
+                @foreach ($services as $service)
                 <div class="blog-item">
-                    <img src="img/blog-1.jpg" class="img-fluid w-100 rounded-top" alt="">
+                    <img src="{{ asset('storage/images/services/'. $service->image) }}" 
+                    class="img-fluid w-100 rounded-top" alt=""
+                    style="width: 100px; height: 200px;">
                     <div class="rounded-bottom bg-light">
                         <div class="d-flex justify-content-between p-4 pb-2">
-                            <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i>By Admin</span>
-                            <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>10 Feb, 2023</span>
+                            <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i> {{$service->employee->user->name}} </span>
+                            <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>{{$service->employee->user->created_at->format('Y-m-d')}}</span>
                         </div>
                         <div class="px-4 pb-0">
-                            <h4>How To Build A Cleaning Plan</h4>
-                            <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod tempor.</p>
+                            <h4>{{$service->name}}</h4>
+                            <p>{{$service->description}}</p>
                         </div>
                         <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
-                            <a href="#" type="button" class="btn btn-primary border-0">Learn More</a>
+                            <a href="#" type="button" class="btn btn-primary border-0"> View </a>
                             <a href="#" class="my-auto btn-primary border-0"><i class="fa fa-comments me-2"></i>23
                                 Comments</a>
                         </div>
                     </div>
                 </div>
-                <div class="blog-item">
-                    <img src="img/blog-3.jpg" class="img-fluid w-100 rounded-top" alt="">
-                    <div class="rounded-bottom bg-light">
-                        <div class="d-flex justify-content-between p-4 pb-2">
-                            <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i>By Admin</span>
-                            <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>10 Feb, 2023</span>
-                        </div>
-                        <div class="px-4 pb-0">
-                            <h4>How To Build A Cleaning Plan</h4>
-                            <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod tempor.</p>
-                        </div>
-                        <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
-                            <a href="#" type="button" class="btn btn-primary border-0">Learn More</a>
-                            <a href="#" class="my-auto text-dark"><i class="fa fa-comments me-2"></i>23
-                                Comments</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item">
-                    <img src="img/blog-2.jpg" class="img-fluid w-100 rounded-top" alt="">
-                    <div class="rounded-bottom bg-light">
-                        <div class="d-flex justify-content-between p-4 pb-2">
-                            <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i>By Admin</span>
-                            <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>10 Feb, 2023</span>
-                        </div>
-                        <div class="px-4 pb-0">
-                            <h4>How To Build A Cleaning Plan</h4>
-                            <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod tempor.</p>
-                        </div>
-                        <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
-                            <a href="#" type="button" class="btn btn-primary border-0">Learn More</a>
-                            <a href="#" class="my-auto text-dark"><i class="fa fa-comments me-2"></i>23
-                                Comments</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item">
-                    <img src="img/blog-1.jpg" class="img-fluid w-100 rounded-top" alt="">
-                    <div class="rounded-bottom bg-light">
-                        <div class="d-flex justify-content-between p-4 pb-2">
-                            <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i>By Admin</span>
-                            <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>10 Feb, 2023</span>
-                        </div>
-                        <div class="px-4 pb-0">
-                            <h4>How To Build A Cleaning Plan</h4>
-                            <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod tempor.</p>
-                        </div>
-                        <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
-                            <a href="#" type="button" class="btn btn-primary border-0">Learn More</a>
-                            <a href="#" class="my-auto text-dark"><i class="fa fa-comments me-2"></i>23
-                                Comments</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
-    <!-- Blog End -->
-
-
+    <!-- Services End -->
 
 
 
@@ -323,19 +167,22 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Team
+                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Employees
                 </h5>
                 <h1 class="display-5 w-50 mx-auto">Our Members</h1>
             </div>
             <div class="row g-5">
+                @foreach($users as $user)
+
                 <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
                     <div class="rounded team-item">
-                        <img src="img/team-1..jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
+                        <img src="{{ asset('storage/images/employee/' . $user->employee->image) }}" class="img-fluid w-100 rounded-top border border-bottom-0"
                             alt="">
                         <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
+                            <span class="fs-4 fw-bold">{{$user->name}}</span>
+                            <p class="text-muted mb-0">{{$user->employee->skill}}</p>
                         </div>
+                        
                         <div class="team-icon d-flex flex-column ">
                             <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
@@ -344,54 +191,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="rounded team-item">
-                        <img src="img/team-2.jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
-                            alt="">
-                        <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
-                        </div>
-                        <div class="team-icon d-flex flex-column ">
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".7s">
-                    <div class="rounded team-item">
-                        <img src="img/team-3.jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
-                            alt="">
-                        <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
-                        </div>
-                        <div class="team-icon d-flex flex-column ">
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".9s">
-                    <div class="rounded team-item">
-                        <img src="img/team-4.jpg" class="img-fluid w-100 rounded-top border border-bottom-0"
-                            alt="">
-                        <div class="team-content bg-primary text-dark text-center py-3">
-                            <span class="fs-4 fw-bold">Full Name</span>
-                            <p class="text-muted mb-0">Designation</p>
-                        </div>
-                        <div class="team-icon d-flex flex-column ">
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
