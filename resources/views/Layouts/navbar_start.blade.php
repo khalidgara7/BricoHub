@@ -29,10 +29,13 @@
                         </div>
                     </div>
                     <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact</a>
+
+                    @if (Auth::user())
+                        <a href="{{ route('logout') }}" class="nav-item nav-link">logout</a>
+                    @else
                     <a href="{{ route('login') }}" class="nav-item nav-link">login</a>
                     <a href="{{ route('register') }}" class="nav-item nav-link">register</a>
-                    <a href="{{ route('logout') }}" class="nav-item nav-link">logout</a>
-
+                    @endif
                 </div>
             </div>
         </nav>
