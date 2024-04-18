@@ -65,7 +65,7 @@
                             <p>{{$service->description}}.</p>
                         </div>
                         <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
-                            <a href="#" type="button" class="btn btn-primary border-0">Learn More</a>
+                            <a href="{{route('service.show',$service)}}" type="button" class="btn btn-primary border-0">View More</a>
                             <a href="#" class="my-auto btn-primary border-0"><i class="fa fa-comments me-2"></i>23
                                 Comments</a>
                         </div>

@@ -22,21 +22,16 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        $user = User::where('email', $credentials['email'])->first();
-
-        if ($user && Hash::check($credentials['password'], $user->password)) {
-            $request->session()->regenerate();
-            $request->session()->put("user", $user);
-            if ($user->isAdmin()) {
+        if (auth()->attempt($credentials)) {
+            if (auth()->user()->isAdmin()) {
                 return redirect('dashboard');
             }
-            if ($user->isEmployee()) {
-                return redirect('/profile');
+            if (auth()->user()->isEmployee()) {
+                return redirect('profile/' . auth()->user()->id);
             }
-            if($user->isEmployeur()){
+            if (auth()->user()->isEmployeur()) {
                 return redirect('/');
             }
-
         } else {
             // Authentication failed
             return redirect()->back()->withInput($request->only('email'))
