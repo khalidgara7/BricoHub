@@ -11,6 +11,7 @@ class EmployeurProfileController extends Controller
 {
     public function index()
     {
+
         // if (Auth::user()->role == 'employee') {
         //     $services = Offer::where('user_id', auth()->user()->employee->user_id)->get();
         // }elseif (Auth::user()->role == 'employeur') {

@@ -10,6 +10,7 @@ use App\Http\Controllers\employeur\EmployeurProfileController;
 use App\Http\Controllers\frontOffice\categories\ListCategoriesController;
 use App\Http\Controllers\frontOffice\employees\ListEmployeeController;
 use App\Http\Controllers\frontOffice\services\ListServicesController;
+use App\Http\Controllers\frontOffice\services\ServicesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,7 @@ Route::get('/register',[RegisterController::class,'showregistre'])->name('show.r
 Route::post('/register',[RegisterController::class, 'register'])->name('register');
 Route::get('/login',[LoginController::class,'showlogin'])->name('show.login');
 Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 // categories routes
 Route::resource('category', CategoriesController::class);
@@ -61,7 +63,7 @@ Route::post('/Employee/store', [EmployeeController::class, 'storeEmployeeInfo'])
 
 
 // Employee Profile Routes...
-Route::get('/profile', [EmployeeProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/{userid}', [EmployeeProfileController::class, 'index'])->name('profile.index');
 
 // Service Routes...
 Route::get('/add-service',[ServiceController::class,'create'])->name('service.create');
@@ -79,3 +81,9 @@ Route::get('/employee-list', [ListEmployeeController::class, 'listEmployee'])->n
 
 // Employeur Profile Routes...
 Route::get('/Employeurprofile', [EmployeurProfileController::class, 'index'])->name('profileEmployeur.index');
+
+
+// services single page
+
+Route::get('/service/{service}', [ServicesController::class, 'show'])->name('service.show');
+

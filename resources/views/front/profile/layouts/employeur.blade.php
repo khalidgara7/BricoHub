@@ -9,22 +9,21 @@
                         <img src="" alt="">
                     </div>
                     <div class="pd">
-                        <h2>addaazd</h2>
-                        <p>dazadazd</p>
+                        <h2>Name :</h2>
+                        <p>{{ auth()->user()->name }}</p>
                     </div>
 
                 </div>
             </div>
             <div class="col-md-4 eml-mob">
                 <ul>
-                    <li><i class="fas fa-envelope"></i>daazazd</li>
-                    <li><i class="fas fa-phone-square"></i>adazdazda
-                    </li>
+                    <li><i class="fas fa-envelope"></i>{{ auth()->user()->email }}</li>
+                    
                 </ul>
             </div>
             <div class="col-md-4 d-flex map-mark">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>adzazdazd</p>
+                <i class="fas fa-calendar-alt"></i>
+                <p>Created-At : {{ auth()->user()->created_at->format('Y-m-d')}} </p>
             </div>
         </div>
 
@@ -42,18 +41,18 @@
 
                         <div class="col-md-12 home-dat">
                             <div class="detal-jumbo">
-                                <h3>Hello I'm azdazddzaddzd</h3>
-                                <p>azdaazddza
-                                </p>
+                                <h3>Hello I'm a {{ auth()->user()->name }} </h3>
+                                <p> 
+                                    "I am looking for an employee to do some work for me."
+                                     </p>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
             <section style="background-color:  #eee;" class="pt-4">
 
-                <h2 class="text-center ">offers</h2>
+                <h2 class="text-center "> Offers </h2>
                 <div class="container ">
                         <div class="row justify-content-center mb-3">
                             <div class="col-md-12 col-xl-10">

@@ -17,7 +17,7 @@
                         @if (Auth::user()->isEmployeur())
                             <a href="{{ route('profileEmployeur.index') }}" class="nav-item nav-link">Profile</a>
                         @elseif(Auth::user()->isEmployee())
-                            <a href="{{ route('profile.index') }}" class="nav-item nav-link">Profile</a>
+                            <a href="{{ route('profile.index',auth()->user()->id) }}" class="nav-item nav-link">Profile</a>
                         @endif
                     @endif
                     <a href="{{ route('list-categories') }}" class="nav-item nav-link">Categories</a>
@@ -29,6 +29,13 @@
                         </div>
                     </div>
                     <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact</a>
+
+                    @if (Auth::user())
+                        <a href="{{ route('logout') }}" class="nav-item nav-link">logout</a>
+                    @else
+                    <a href="{{ route('login') }}" class="nav-item nav-link">login</a>
+                    <a href="{{ route('register') }}" class="nav-item nav-link">register</a>
+                    @endif
                 </div>
             </div>
         </nav>
