@@ -47,6 +47,7 @@ Route::get('/register',[RegisterController::class,'showregistre'])->name('show.r
 Route::post('/register',[RegisterController::class, 'register'])->name('register');
 Route::get('/login',[LoginController::class,'showlogin'])->name('show.login');
 Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 // categories routes
 Route::resource('category', CategoriesController::class);
