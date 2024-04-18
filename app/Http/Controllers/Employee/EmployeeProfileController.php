@@ -12,7 +12,7 @@ class EmployeeProfileController extends Controller
     public function index()
     {
         $services = Service::where('user_id', auth()->user()->employee->user_id)->get();
-        return view('front.profile.profile',compact('services'));
+        return view('front.profile.layouts.employee',compact('services'));
     }
 
 

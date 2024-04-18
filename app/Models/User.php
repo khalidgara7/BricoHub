@@ -54,6 +54,16 @@ class User extends Authenticatable
         return $this->hasOne(Employee::class, 'user_id');
     }
 
+    public function Employeur()
+    {
+        return $this->hasOne(Employeur::class, 'user_id');
+    }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
+
     public function isAdmin()
     {
         return $this->roles()->where('name', 'Admin')->exists();

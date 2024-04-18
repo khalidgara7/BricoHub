@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Employee\EmployeeProfileController;
 use App\Http\Controllers\Employee\ServiceController;
+use App\Http\Controllers\employeur\EmployeurProfileController;
 use App\Http\Controllers\frontOffice\categories\ListCategoriesController;
 use App\Http\Controllers\frontOffice\employees\ListEmployeeController;
 use App\Http\Controllers\frontOffice\services\ListServicesController;
@@ -74,3 +75,7 @@ Route::get('/list-services', [ListServicesController::class, 'listServices'])->n
 
 //employeee list 
 Route::get('/employee-list', [ListEmployeeController::class, 'listEmployee'])->name('employee.list');
+
+
+// Employeur Profile Routes...
+Route::get('/Employeurprofile', [EmployeurProfileController::class, 'index'])->name('profileEmployeur.index');

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->float('price');
             $table->text('description')->nullable();
             $table->string('title');
+            $table->unsignedBigInteger('employeur_id');
+            $table->foreign('employeur_id')->references('user_id')->on('employeurs')->onDelete('cascade');
             $table->timestamps();
         });
     }
