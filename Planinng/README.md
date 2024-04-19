@@ -24,12 +24,12 @@ L'objectif de ce projet est de développer une application web qui facilitera la
 
 ##### 2.1.2 Profil Employé
 - Possibilité de créer et gérer un profil d'Employé.
-- Ajout et modifier et la supression ainssi de la gestion des Services d'emploi.
+-Ajouter et modifier et la suppression ainsi de la gestion des Services d'emploi.
 
 #### 2.2 Tableau de bord Employeur
 
 ##### 2.2.1 Inscription et Connexion
-- Système d'inscription sécurisé pour les Employeur.
+- Système d'inscription sécurisé pour les Employeurs.
 - Authentification sécurisée pour les utilisateurs enregistrés.
 
 ##### 2.2.2 Profil Employeur
@@ -65,10 +65,10 @@ L'objectif de ce projet est de développer une application web qui facilitera la
 ### 5. Technologies
 
 #### 5.1 Frontend
-- Utilisation de technologies web modernes telles que HTML5, CSS3, JavaScript (frameworks comme React, Angular, ou Vue.js).
+- Utilisation de technologies web modernes telles que HTML5, CSS3, JavaScript.
 
 #### 5.2 Backend
-- Utilisation d'un langage de programmation backend php. (frameworks comme laravel).
+- Utilisation d'un langage de programmation backend php. (frameworks laravel).
 - Base de données pour stocker les données, les offres d'emploi, les utilisateurs etc...
   
 <hr> planification de file rouge <hr>
