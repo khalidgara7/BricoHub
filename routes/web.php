@@ -32,9 +32,6 @@ Route::get('/contact', function () {
     return view('front.contact');
 });
 
-// 
-// route for the dashboard
-Route::get('/dashboard',[dashboardController::class,'admin'])->name('dashboard.index');
 
 
 // route for the home page
@@ -44,43 +41,56 @@ Route::get('/register',[RegisterController::class,'showregistre'])->name('show.r
 Route::post('/register',[RegisterController::class, 'register'])->name('register');
 Route::get('/login',[LoginController::class,'showlogin'])->name('show.login');
 Route::post('/login',[LoginController::class,'login'])->name('login');
-Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-// categories routes
-Route::resource('category', CategoriesController::class);
-Route::resource('user', UsersController::class);
+ // categories routes
+ Route::middleware(['auth', 'admin'])->group(function(){
 
+    Route::resource('category', CategoriesController::class);
 
-// Employee Routes...
-Route::get('/Employee/form', [EmployeeController::class, 'showEmployeeForm'])->name('Employee.form');
-Route::post('/Employee/store', [EmployeeController::class, 'storeEmployeeInfo'])->name('Employee.store');
+    // route for the dashboard
+    Route::get('/dashboard',[dashboardController::class,'admin'])->name('dashboard.index');
 
+    Route::resource('user', UsersController::class);
 
-// Employee Profile Routes...
-Route::get('/profile/{userid}', [EmployeeProfileController::class, 'index'])->name('profile.index');
+});
 
-// Service Routes...
-Route::get('/add-service',[ServiceController::class,'create'])->name('service.create');
-Route::post('/add-service',[ServiceController::class,'store'])->name('service.store');
-Route::get('/edit-service/{service}',[ServiceController::class,'edit'])->name('service.edit');
-Route::patch('/edit-service/{service}',[ServiceController::class,'update'])->name('service.update');
-Route::delete('/delete-service/{id}',[ServiceController::class,'destroy'])->name('service.destroy');
+Route::middleware(['auth'])->group(function(){
 
-// ListCategories routes ...
-Route::get('/categories', [ListCategoriesController::class, 'listCategories'])->name('list-categories');
+    Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-// ListServices routes ...
-Route::get('/list-services', [ListServicesController::class, 'listServices'])->name('list-services');
-
-//employeee list 
-Route::get('/employee-list', [ListEmployeeController::class, 'listEmployee'])->name('employee.list');
+    // Employee Routes...
+    Route::get('/Employee/form', [EmployeeController::class, 'showEmployeeForm'])->name('Employee.form');
+    Route::post('/Employee/store', [EmployeeController::class, 'storeEmployeeInfo'])->name('Employee.store');
 
 
-// Employeur Profile Routes...
-Route::get('/Employeurprofile', [EmployeurProfileController::class, 'index'])->name('profileEmployeur.index');
+    // Employee Profile Routes...
+    Route::get('/profile/{userid}', [EmployeeProfileController::class, 'index'])->name('profile.index');
+
+    // Service Routes...
+    Route::get('/add-service',[ServiceController::class,'create'])->name('service.create');
+    Route::post('/add-service',[ServiceController::class,'store'])->name('service.store');
+    Route::get('/edit-service/{service}',[ServiceController::class,'edit'])->name('service.edit');
+    Route::patch('/edit-service/{service}',[ServiceController::class,'update'])->name('service.update');
+    Route::delete('/delete-service/{id}',[ServiceController::class,'destroy'])->name('service.destroy');
+
+    // ListCategories routes ...
+    Route::get('/categories', [ListCategoriesController::class, 'listCategories'])->name('list-categories');
+
+    // ListServices routes ...
+    Route::get('/list-services', [ListServicesController::class, 'listServices'])->name('list-services');
+
+    //employeee list 
+    Route::get('/employee-list', [ListEmployeeController::class, 'listEmployee'])->name('employee.list');
 
 
-// services single page
+    // Employeur Profile Routes...
+    Route::get('/Employeurprofile', [EmployeurProfileController::class, 'index'])->name('profileEmployeur.index');
 
-Route::get('/service/{service}', [ServicesController::class, 'show'])->name('service.show');
+
+    // services single page
+
+    Route::get('/service/{service}', [ServicesController::class, 'show'])->name('service.show');
+
+});
+
 
