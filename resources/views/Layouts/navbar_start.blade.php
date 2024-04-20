@@ -12,7 +12,6 @@
             <div class="collapse navbar-collapse me-n3" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
                     <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
-                    <a href="{{ url('/about') }}" class="nav-item nav-link">About</a>
                     @if (Auth::user())
                         @if (Auth::user()->isEmployeur())
                             <a href="{{ route('profileEmployeur.index') }}" class="nav-item nav-link">Profile</a>
@@ -22,7 +21,7 @@
                     @endif
                     <a href="{{ route('list-categories') }}" class="nav-item nav-link">Categories</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                        <a href="#" class="nav-link " data-bs-toggle="dropdown">Services</a>
                         <div class="dropdown-menu m-0 bg-primary">
                             <a href="{{ route('employee.list') }}" class="dropdown-item">Employees</a>
                             <a href="{{ route('list-services') }}" class="dropdown-item">Services</a>

@@ -1,4 +1,4 @@
-<@extends('Admin.layouts.master')
+@extends('Admin.layouts.master')
 
     @section('title')
     Category
