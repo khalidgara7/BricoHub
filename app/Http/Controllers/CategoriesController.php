@@ -6,16 +6,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
     public function index()
     {
-
+        $user = Auth::user();
         $categories = Category::paginate(5);
         $total_categories = Category::count();
-        return view('Admin.categories.index',compact('categories','total_categories'));
+        return view('Admin.categories.index',compact('user', 'categories','total_categories'));
     }
 
     public function create()

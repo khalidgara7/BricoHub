@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(5);
+        $user = Auth::user();
+        $users = User::all();
+        
         $total_users = User::count();
-        return view('Admin.users.index',compact('users','total_users'));
+        return view('Admin.users.index',compact('users','total_users', 'user'));
     }
 
     public function destroy(string $id)

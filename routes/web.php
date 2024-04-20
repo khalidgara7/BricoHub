@@ -3,6 +3,7 @@
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Employee\EmployeeProfileController;
 use App\Http\Controllers\Employee\ServiceController;
@@ -26,22 +27,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/about', function () {
-    return view('front.about');
-});
-Route::get('/services', function () {
-    return view('front.service');
-});
-Route::get('/project', function () {
-    return view('front.project');
-});
+
 Route::get('/contact', function () {
     return view('front.contact');
 });
 
-Route::get('/dashboard', function () {
-    return view('Admin.index');
-});
+// 
+// route for the dashboard
+Route::get('/dashboard',[dashboardController::class,'admin'])->name('dashboard.index');
+
+
+// route for the home page
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
 Route::get('/register',[RegisterController::class,'showregistre'])->name('show.register');
@@ -54,8 +50,6 @@ Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 Route::resource('category', CategoriesController::class);
 Route::resource('user', UsersController::class);
 
-// ListCategories routes ...
-Route::get('/categories', [ListCategoriesController::class, 'listCategories'])->name('list-categories');
 
 // Employee Routes...
 Route::get('/Employee/form', [EmployeeController::class, 'showEmployeeForm'])->name('Employee.form');
@@ -71,6 +65,9 @@ Route::post('/add-service',[ServiceController::class,'store'])->name('service.st
 Route::get('/edit-service/{service}',[ServiceController::class,'edit'])->name('service.edit');
 Route::patch('/edit-service/{service}',[ServiceController::class,'update'])->name('service.update');
 Route::delete('/delete-service/{id}',[ServiceController::class,'destroy'])->name('service.destroy');
+
+// ListCategories routes ...
+Route::get('/categories', [ListCategoriesController::class, 'listCategories'])->name('list-categories');
 
 // ListServices routes ...
 Route::get('/list-services', [ListServicesController::class, 'listServices'])->name('list-services');
