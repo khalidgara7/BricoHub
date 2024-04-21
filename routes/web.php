@@ -94,6 +94,11 @@ Route::middleware(['auth'])->group(function(){
     // reservation routes
     Route::post('/service/{service}/reserve', [App\Http\Controllers\ReservationController::class, 'reserve'])->name('reserve.service');
 
+    Route::middleware(['isEmployee'])->group(function() {
+        Route::post('/reservations/{reservation}', [\App\Http\Controllers\ReservationController::class, 'updateStatus'])->name('reservations.updateStatus');
+    });
 });
+
+
 
 
