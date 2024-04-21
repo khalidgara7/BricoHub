@@ -14,9 +14,10 @@ class EmployeeProfileController extends Controller
     public function index($userid)
     {
         $user = User::find($userid);
+
         if(Auth::check() && Auth::user()->isEmployee())
         {
-            $services = Service::where('user_id', auth()->user()->employee->user_id)->get();
+            $services = Service::where('user_id', auth()->user()->employee->user_id)->paginate(1);
         }else{
 
             $services = Service::where('user_id', $userid)->get();

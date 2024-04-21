@@ -96,13 +96,44 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{route("reserve.service", $service->id)}}" method="post">
+                        @if (session("error"))
+                            <div class="alert alert-danger mt-5">
+                                {{ session("error") }}
+                            </div>
+                        @endif
+                        <form action="{{ route("reserve.service", $service->id) }}" method="post"
+                              class="mt-5 w-100 border border-2
+                              @if($errors->any() || session("error")) border-danger @else border-primary @endif
+                               p-4 rounded-3 bg-light">
                             @csrf
                             @method('POST')
 
-                            <button type="submit" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">
-                                Reserve Services</button>
+                            <div class="row">
+                                <label for="start_date" class="col-6">
+                                    <h5>Start Date</h5>
+                                    <input type="date" value="{{old('start_date')}}"  name="start_date" id="start_date" class="form-control @error('start_date') is-invalid @enderror">
+                                    @error('start_date')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </label>
+                                <label for="end_date" class="col-6">
+                                    <h5>End Date</h5>
+                                    <input type="date" value="{{old('end_date')}}" name="end_date" id="end_date" class="form-control @error('end_date') is-invalid @enderror">
+                                    @error('end_date')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </label>
+                            </div>
+
+                            <div class="row justify-content-center"> <!-- Center the button -->
+                                <div class="col-6"> <!-- Use Bootstrap grid to control the width -->
+                                    <button type="submit" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5 w-100"> <!-- Add w-100 to make the button full-width -->
+                                        Reserve Services
+                                    </button>
+                                </div>
+                            </div>
                         </form>
+
 
                     </div>
                 </div>
