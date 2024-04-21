@@ -132,7 +132,7 @@
 
                 <div class="container ">
                     @foreach ($services as $service)
-                        <div class="row justify-content-center mb-3">
+                        <div class="row justify-content-center mt-3">
                             <div class="col-md-12 col-xl-10">
                                 <div class="card shadow-0 border rounded-3">
                                     <div class="card-body">
@@ -192,7 +192,7 @@
                                                     <a href="{{ route('service.edit', $service) }}"
                                                         class="btn btn-primary btn-sm"> Edit </a>
 
-                                                    <form class="d-flex flex-column mt-4"
+                                                    <form class="d-flex flex-column mt-2"
                                                         action="{{ route('service.destroy', $service) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -209,6 +209,47 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Display reservations for the service -->
+                        @if($service->reservations->isNotEmpty())
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-md-12 col-xl-10">
+                                    <div class="card shadow-0 border ">
+                                        <div class="card-body">
+                                            <h6 class="card-title text-center">Reservations</h6>
+                                            <hr>
+                                            <ul class="list-group list-group-flush">
+                                                @foreach($service->reservations as $reservation)
+                                                    <div class="card mb-3">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Reservation Details</h5>
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <p><strong>Status:</strong>
+                                                                        <span class="badge badge-warning p-1" style="cursor: pointer; user-select: none">{{ $reservation->status }}</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <p><strong>Price:</strong> {{ $reservation->price }} MAD</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <p><strong>Date:</strong>  {{ \Carbon\Carbon::parse($reservation->date_reservation)->toDateString() }}</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <p><strong>Employeur Name:</strong> {{ $reservation->employeur->user->name }}</p>
+                                                                </div>
+                                                                <!-- Add more reservation details here as needed -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
             </section>

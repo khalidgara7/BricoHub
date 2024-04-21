@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employeur extends Model
 {
-    protected $fillable = ['cin'];
+    protected $fillable = ['user_id', 'created_at', 'updated_at'];
 
-    public function offers()
+    public function reservations()
     {
-        return $this->hasMany(Offer::class);
+        return $this->hasMany(Reservation::class);
     }
 
     public function user()

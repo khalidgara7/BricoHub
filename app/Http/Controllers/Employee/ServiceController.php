@@ -8,6 +8,7 @@ use App\Http\Requests\Services\ServiceUpdateRequest;
 use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
@@ -31,7 +32,7 @@ class ServiceController extends Controller
         }
 
         $service = Service::create($data);
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index', Auth::id());
     }
 
     public function edit(Service $service)
@@ -53,14 +54,14 @@ class ServiceController extends Controller
         }
 
         $service->update($data);
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index', Auth::id());
     }
 
     public function destroy(string $id)
     {
         $service = Service::findOrFail($id);
         $service->delete();
-    
+
         if ($service) {
             return redirect()->route('profile.index')->with('success', 'Service deleted successfully.');
         } else {

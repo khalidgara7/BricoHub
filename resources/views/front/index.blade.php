@@ -135,7 +135,7 @@
 
                 @foreach ($services as $service)
                 <div class="blog-item">
-                    <img src="{{ asset('storage/images/services/'. $service->image) }}" 
+                    <img src="{{ asset('storage/images/services/'. $service->image) }}"
                     class="img-fluid w-100 rounded-top" alt=""
                     style="width: 100px; height: 200px;">
                     <div class="rounded-bottom bg-light">
@@ -182,7 +182,7 @@
                             <span class="fs-4 fw-bold">{{$user->name}}</span>
                             <p class="text-muted mb-0">{{$user->employee->skill}}</p>
                         </div>
-                        
+
                         <div class="team-icon d-flex flex-column ">
                             <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>

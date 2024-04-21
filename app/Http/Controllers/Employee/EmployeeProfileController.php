@@ -18,10 +18,10 @@ class EmployeeProfileController extends Controller
         {
             $services = Service::where('user_id', auth()->user()->employee->user_id)->get();
         }else{
-            
+
             $services = Service::where('user_id', $userid)->get();
         }
-       
+
         return view('front.profile.layouts.employee',compact('services','user'));
     }
 

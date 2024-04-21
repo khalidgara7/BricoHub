@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('offers', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->timestamp('date_reservation')->nullable();
             $table->enum('status', ['rejected', 'cancelled', 'pending', 'accepted'])->default('pending');
             $table->float('price');
-            $table->text('description')->nullable();
-            $table->string('title');
             $table->unsignedBigInteger('employeur_id');
+            $table->unsignedBigInteger('service_id');
             $table->foreign('employeur_id')->references('user_id')->on('employeurs')->onDelete('cascade');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->timestamps();
         });
     }

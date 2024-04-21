@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\employeur;
 
 use App\Http\Controllers\Controller;
-use App\Models\Offer;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +16,7 @@ class EmployeurProfileController extends Controller
         //     $services = Offer::where('user_id', auth()->user()->employee->user_id)->get();
         // }elseif (Auth::user()->role == 'employeur') {
         // }
-            $offers = Offer::where('employeur_id', auth()->user()->employeur)->get();
+            $offers = Reservation::where('employeur_id', auth()->user()->employeur)->get();
             // $services = Service::where('user_id', auth()->user()->employee->user_id)->get();
 
 
