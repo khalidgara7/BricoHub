@@ -9,9 +9,9 @@ class Service extends Model
 {
     protected $fillable = ['user_id', 'title', 'description', 'price', 'image', 'category_id', 'years_of_experience', 'status'];
 
-    public function offers()
+    public function reservations()
     {
-        return $this->belongsToMany(Offer::class);
+        return $this->hasMany(Reservation::class);
     }
 
     public function employee()

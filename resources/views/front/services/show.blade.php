@@ -6,6 +6,11 @@
 
 @section('content')
     <!-- Page Header Start -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
     <div class="container-fluid page-header py-5">
         <div class="container text-center py-5">
             <h1 class="display-2 text-white mb-4 animated slideInDown">About The service</h1>
@@ -91,8 +96,14 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">Find
-                            Services</button>
+                        <form action="{{route("reserve.service", $service->id)}}" method="post">
+                            @csrf
+                            @method('POST')
+
+                            <button type="submit" class="btn btn-primary border-0 rounded-pill px-4 py-3 mt-5">
+                                Reserve Services</button>
+                        </form>
+
                     </div>
                 </div>
             </div>

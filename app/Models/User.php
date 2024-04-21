@@ -59,12 +59,12 @@ class User extends Authenticatable
         return $this->hasOne(Employeur::class, 'user_id');
     }
 
-    public function offers()
+    public function reservations()
     {
-        return $this->hasMany(Offer::class);
+        return $this->hasMany(Reservation::class);
     }
 
-    public function isAdmin()
+    public function isAdmin(): bool
     {
         return $this->roles()->where('name', 'Admin')->exists();
     }

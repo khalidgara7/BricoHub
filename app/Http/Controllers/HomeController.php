@@ -26,7 +26,7 @@ class HomeController extends Controller
         $users = User::whereHas('roles', function ($query) {
             $query->where('name', 'employee');
         })->latest()->take(4)->get();
-        // dd($users);
+
         return view('front.index', compact('categories', 'services', 'users'));
     }
 }

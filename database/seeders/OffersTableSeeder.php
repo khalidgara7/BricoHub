@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Offer;
+use App\Models\Reservation;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +13,6 @@ class OffersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Offer::factory()->count(10)->create();
+        Reservation::factory()->count(10)->create();
     }
 }

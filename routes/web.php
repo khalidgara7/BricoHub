@@ -79,7 +79,7 @@ Route::middleware(['auth'])->group(function(){
     // ListServices routes ...
     Route::get('/list-services', [ListServicesController::class, 'listServices'])->name('list-services');
 
-    //employeee list 
+    //employeee list
     Route::get('/employee-list', [ListEmployeeController::class, 'listEmployee'])->name('employee.list');
 
 
@@ -88,8 +88,11 @@ Route::middleware(['auth'])->group(function(){
 
 
     // services single page
-
-    Route::get('/service/{service}', [ServicesController::class, 'show'])->name('service.show');
+    Route::middleware(['isEmployeur'])->group(function() {
+        Route::get('/service/{service}', [ServicesController::class, 'show'])->name('service.show');
+    });
+    // reservation routes
+    Route::post('/service/{service}/reserve', [App\Http\Controllers\ReservationController::class, 'reserve'])->name('reserve.service');
 
 });
 

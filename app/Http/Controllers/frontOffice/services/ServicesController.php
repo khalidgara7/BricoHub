@@ -11,7 +11,7 @@ class ServicesController extends Controller
     public function show(Service $service)
     {
         $service = Service::with('employee')->find($service->id);
-        $totalOffers = $service->offers->where('status', 'accepted')->count();
+        $totalOffers = $service->reservations->where('status', 'accepted')->count();
         return view('front.services.show', compact('service', 'totalOffers'));
     }
 
