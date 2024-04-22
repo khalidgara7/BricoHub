@@ -54,15 +54,23 @@
                 <div class="row g-5" id="servicesContainer">
                     @foreach ($services as $service)
                         <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
-                            <img src="{{ asset('storage/images/services/'. $service->image) }}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{ asset('storage/images/services/'. $service->image) }}"
+                                 class="img-fluid w-100 rounded-top border border-bottom-0" alt="Employee Image"
+                                 style="height: 200px; object-fit: cover;">
                             <div class="rounded-bottom bg-light">
                                 <div class="d-flex justify-content-between p-4 pb-2">
                                     <span class="pe-2 text-dark"><i class="fa fa-user me-2"></i>{{$service->employee->user->name}}</span>
                                     <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>{{$service->employee->user->created_at->format('Y-m-d')}}</span>
                                 </div>
                                 <div class="px-4 pb-0">
-                                    <h4>{{$service->name}}</h4>
-                                    <p>{{$service->description}}.</p>
+                                    <span><strong>Title:</strong> {{$service->title}}</span>
+                                    <h6><strong>Category:</strong> {{$service->category->name}}</h6>
+                                    <p class="mb-2 text-muted "> <?php
+                                         $description = $service->description;
+                                         $words = str_word_count($description, 1);
+                                         $shortDescription = implode(' ', array_slice($words, 0, 10));
+                                         echo $shortDescription . (count($words) > 10 ? '...' : '');
+                                         ?></p>
                                 </div>
                                 <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
                                     <a href="{{route('service.show',$service)}}" type="button" class="btn btn-primary border-0">View More</a>
@@ -79,9 +87,9 @@
                 </div>
             @endif
         </div>
-        {{-- <div class="pagination justify-content-center mt-5">
+         <div class="pagination justify-content-center mt-5">
             {{ $services->links() }}
-        </div> --}}
+        </div>
     </div>
     <!-- Services End -->
 @endsection

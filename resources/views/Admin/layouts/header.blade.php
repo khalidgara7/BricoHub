@@ -8,7 +8,7 @@
             <div class="nk-header-brand p-2">
                 <a href="" class="logo-link">
                     <a href="{{ url('/dashboard') }}" class="navbar-brand">
-                        <h1 class="text-primary mb-0 display-5">Brico<span class="text-black ">Hub</h1>
+                        <h1 class="text-primary mb-0 display-5">Brico<span class="text-black">Hub</span></h1>
                     </a>
                     {{-- <img class="logo-light logo-img" src="{{asset('/images/logo.png')}}" srcset="./images/logo2x.png 2x" alt="logo">
                     <img class="logo-dark logo-img" src="{{asset('/images/logo-dark.png')}}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark"> --}}
@@ -26,6 +26,8 @@
                         <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-arrow-left"></em></a>
                     </div>
                 </div>
+                <!-- .nk-menu-item -->
+              @if(!Auth::check() || !Auth::user()->isEmployee())
                 <ul class="nk-menu nk-menu-main ui-s2">
 
                     <li class="nk-menu-item has-sub">
@@ -83,6 +85,7 @@
                     </li>
                     <!-- .nk-menu-item -->
                 </ul>
+                @endif
             </div><!-- .nk-header-menu -->
 
             <div class="nk-header-tools">
@@ -107,7 +110,7 @@
                                             <div class="nk-notification-time">2 hrs ago</div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="nk-notification-item dropdown-inner">
                                         <div class="nk-notification-icon">
                                             <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
@@ -117,7 +120,7 @@
                                             <div class="nk-notification-time">2 hrs ago</div>
                                         </div>
                                     </div>
-                                    
+
                                 </div><!-- .nk-notification -->
                             </div><!-- .nk-dropdown-body -->
                             <div class="dropdown-foot center">
@@ -133,13 +136,14 @@
                                 <div class="user-avatar sm">
                                     <em class="icon ni ni-user-alt"></em>
                                 </div>
-                                
+
                                 <div class="user-info d-none d-xl-block">
                                     <div class="user-status">{{Auth::user()->name}}</div>
-                                    <div class="user-name dropdown-indicator">{{Auth::user()->email}}</div>
+                                    <div class="user-name ">{{Auth::user()->email}}</div>
                                 </div>
                             </div>
                         </a>
+                    @if(!Auth::check() || !Auth::user()->isEmployee())
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-end dropdown-menu-s1 is-light">
                             <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                 <div class="user-card">
@@ -168,6 +172,7 @@
                                 </ul>
                             </div>
                         </div>
+                    @endif
                     </li><!-- .dropdown -->
                     <li class="dropdown language-dropdown d-none d-sm-flex me-n1">
                         <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">

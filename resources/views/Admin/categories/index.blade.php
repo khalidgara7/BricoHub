@@ -107,9 +107,8 @@
                                                 </div>
                                                 <div class="nk-tb-col">
                                                                 <span class="tb-product">
-                                                                    <img
-                                                                        src="{{ asset('storage/images/category/' . $category->image) }}"
-                                                                        alt="" class="thumb">
+                                                                    <img src="{{ asset('storage/images/category/' . $category->image) }}"
+                                                                         alt="" class="thumb" style="width: 40px; height: 40px;">
                                                                 </span>
                                                 </div>
 
@@ -176,7 +175,7 @@
 
                         </div>
                         <div class="pagination justify-content-center mt-5">
-                            {{ $categories->links() }} 
+                            {{ $categories->links() }}
                         </div>
                     </div>
                 </div>

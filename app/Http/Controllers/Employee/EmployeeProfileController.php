@@ -20,7 +20,7 @@ class EmployeeProfileController extends Controller
             $services = Service::where('user_id', auth()->user()->employee->user_id)->paginate(1);
         }else{
 
-            $services = Service::where('user_id', $userid)->get();
+            $services = Service::where('user_id', $userid)->paginate(1);
         }
 
         return view('front.profile.layouts.employee',compact('services','user'));

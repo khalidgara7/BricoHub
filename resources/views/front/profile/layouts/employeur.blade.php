@@ -74,7 +74,7 @@
                                                 <div class="col-md-3">
                                                     <p><strong>Employee Name:</strong> {{ $reservation->service->employee->user->name }}</p>
                                                     @if($reservation->status == 'accepted')
-                                                        <p><strong>Employeur Phone Number:</strong> {{ $reservation->service->employee->phone_number }}</p>
+                                                        <p><strong>Employeur Phone Number:</strong> {{ $reservation->service-> employee->phone_number }}</p>
                                                     @endif
                                                 </div>
                                             </div>

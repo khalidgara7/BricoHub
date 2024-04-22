@@ -18,11 +18,28 @@
                         <div class="nk-content-body">
                             <div class="nk-block-head nk-block-head-sm">
                                 <div class="nk-block-between">
-                                    <div class="nk-block-head-content">
-                                        <h3 class="nk-block-title page-title">Users Lists</h3>
-                                        <div class="nk-block-des text-soft">
-                                            <p> {{$total_users}}</p>
-                                        </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-bordered card-full">
+                                            <div class="card-inner">
+                                                <div class="card-title-group align-start mb-0">
+                                                    <div class="card-title">
+                                                        <h6 class="subtitle">Total Users</h6>
+                                                    </div>
+                                                    <div class="card-tools">
+                                                        <em class="card-hint icon ni ni-help-fill" data-bs-toggle="tooltip"
+                                                            data-bs-placement="left" title="Total Deposited"></em>
+                                                    </div>
+                                                </div>
+                                                <div class="card-amount">
+                                                    <span class="amount">
+                                                        {{$total_users}}
+                                                        <span class="currency currency-usd">
+                                                            Users
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div><!-- .card -->
                                     </div><!-- .nk-block-head-content -->
                                     <div class="nk-block-head-content">
                                         <div class="toggle-wrap nk-block-tools-toggle">
@@ -287,86 +304,70 @@
                                                     </div>
                                                     <div class="nk-tb-col tb-col-md"><span class="sub-text">Phone</span>
                                                     </div>
-                                                    <div class="nk-tb-col tb-col-lg"><span
-                                                            class="sub-text">Verified</span></div>
-                                                    <div class="nk-tb-col tb-col-xxl"><span
-                                                            class="sub-text">Last Login</span></div>
-                                                    <div class="nk-tb-col"><span class="sub-text">Status</span></div>
                                                     <div class="nk-tb-col"><span class="sub-text">Action</span></div>
                                                 </div>
                                                 <!-- .nk-tb-item -->
                                                 @foreach($users as $user)
-                                                <div class="nk-tb-item">
-                                                    <div class="nk-tb-col nk-tb-col-check">
-                                                        <div
-                                                            class="custom-control custom-control-sm custom-checkbox notext">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                   id="uid1">
-                                                            <label class="custom-control-label" for="uid1"></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-tb-col">
-                                                        <div class="user-card">
-                                                            <div class="user-avatar xs bg-primary">
-                                                                <span>AB</span>
-                                                            </div>
-                                                            <div class="user-name">
-                                                                <span class="tb-lead">{{$user->name}}</span>
+                                                    <div class="nk-tb-item">
+                                                        <div class="nk-tb-col nk-tb-col-check">
+                                                            <div
+                                                                class="custom-control custom-control-sm custom-checkbox notext">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                       id="uid1">
+                                                                <label class="custom-control-label" for="uid1"></label>
                                                             </div>
                                                         </div>
+                                                        <div class="nk-tb-col">
+                                                            <div class="user-card">
+                                                                <div class="user-avatar xs bg-primary">
+                                                                    <span>AB</span>
+                                                                </div>
+                                                                <div class="user-name">
+                                                                    <span class="tb-lead">{{$user->name}}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nk-tb-col tb-col-md">
+                                                            <span>@foreach($user->roles as $role)
+                                                                    {{$role->name}}
+                                                                @endforeach</span>
+                                                        </div>
+                                                        <div class="nk-tb-col tb-col-sm">
+                                                            <span>{{$user->email}}</span>
+                                                        </div>
+                                                        <div class="nk-tb-col tb-col-md">
+                                                            @if($user->hasRole('employee'))
+                                                                <p>{{ $user->employee->phone_number }}</p>
+                                                            @endif
+                                                        </div>
+                                                        <div class="nk-tb-col nk-tb-col-tools">
+                                                            <ul class="nk-tb-actions gx-2">
+                                                                <li class="nk-tb-action-hidden">
+                                                                    <form class="mx-3 "
+                                                                          action="{{ route('user.destroy', $user) }}"
+                                                                          method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="btn btn-trigger btn-icon"
+                                                                                data-bs-toggle="tooltip"
+                                                                                data-bs-placement="top"
+                                                                                onclick="return confirm('Do you really want to Delete ?');"
+                                                                                type="submit">
+                                                                            <em
+                                                                                class="icon ni ni-trash-fill ">
+                                                                            </em>
+                                                                        </button>
+                                                                    </form>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                    <div class="nk-tb-col tb-col-md">
-                                                        <span>@foreach($user->roles as $role)
-                                                            {{$role->name}}
-                                                        @endforeach</span>
-                                                    </div>
-                                                    <div class="nk-tb-col tb-col-sm">
-                                                        <span>{{$user->email}}</span>
-                                                    </div>
-                                                    <div class="nk-tb-col tb-col-md">
-                                                        <span>+811 847-4958</span>
-                                                    </div>
-                                                    <div class="nk-tb-col tb-col-xxl">
-                                                        <span>Bangladesh</span>
-                                                    </div>
-                                                    <div class="nk-tb-col tb-col-lg">
-                                                        <ul class="list-status">
-                                                            <li><em class="icon text-success ni ni-check-circle"></em>
-                                                                <span>Email</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="nk-tb-col tb-col-xxl">
-                                                        <span>10 Feb 2020</span>
-                                                    </div>
-                                                    <div class="nk-tb-col">
-                                                        <span class="tb-status text-success">Active</span>
-                                                    </div>
-                                                    <div class="nk-tb-col nk-tb-col-tools">
-                                                        <ul class="nk-tb-actions gx-2">
-                                                            <li class="nk-tb-action-hidden">
-                                                                <form class="mx-3 "
-                                                                      action="{{ route('user.destroy', $user) }}"
-                                                                      method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="btn btn-trigger btn-icon"  data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                            onclick="return confirm('Do you really want to Delete ?');"
-                                                                            type="submit">
-                                                                        <em
-                                                                            class="icon ni ni-trash-fill ">
-                                                                        </em>
-                                                                    </button>
-                                                                </form>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
                                                 @endforeach
                                                 <!-- .nk-tb-item -->
                                             </div><!-- .nk-tb-list -->
                                         </div><!-- .card-inner -->
-
                                     </div><!-- .card-inner-group -->
+
                                 </div><!-- .card -->
                             </div><!-- .nk-block -->
                         </div>

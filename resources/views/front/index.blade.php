@@ -144,11 +144,17 @@
                             <span class="text-dark"><i class="fas fa-calendar-alt me-2"></i>{{$service->employee->user->created_at->format('Y-m-d')}}</span>
                         </div>
                         <div class="px-4 pb-0">
-                            <h4>{{$service->name}}</h4>
-                            <p>{{$service->description}}</p>
+                            <h4>{{$service->title}}</h4>
+                            <h6><strong>Category:</strong> {{$service->category->name}}</h6>
+                            <p class="mb-2 text-muted "> <?php
+                                 $description = $service->description;
+                                 $words = str_word_count($description, 1);
+                                 $shortDescription = implode(' ', array_slice($words, 0, 10));
+                                 echo $shortDescription . (count($words) > 10 ? '...' : '');
+                                 ?></p>
                         </div>
                         <div class="p-4 py-2 d-flex justify-content-between bg-primary rounded-bottom blog-btn">
-                            <a href="#" type="button" class="btn btn-primary border-0"> View </a>
+                            <a href="{{route('list-services')}}" type="button" class="btn btn-primary border-0"> View </a>
                             <a href="#" class="my-auto btn-primary border-0"><i class="fa fa-comments me-2"></i>23
                                 Comments</a>
                         </div>
@@ -176,8 +182,9 @@
 
                 <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
                     <div class="rounded team-item">
-                        <img src="{{ asset('storage/images/employee/' . $user->employee->image) }}" class="img-fluid w-100 rounded-top border border-bottom-0"
-                            alt="">
+                        <img src="{{ asset('storage/images/employee/' . $user->employee->image) }}"
+                             class="img-fluid w-100 rounded-top border border-bottom-0" alt="Employee Image"
+                             style="height: 200px; object-fit: cover;">
                         <div class="team-content bg-primary text-dark text-center py-3">
                             <span class="fs-4 fw-bold">{{$user->name}}</span>
                             <p class="text-muted mb-0">{{$user->employee->skill}}</p>
@@ -198,149 +205,6 @@
     </div>
     <!-- Team End -->
 
-
-    <!-- Testiminial Start -->
-    <div class="container-fluid testimonial py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-                <h5 class="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Testimonial
-                </h5>
-                <h1 class="display-5 w-50 mx-auto">What Clients Say About Our Services</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay=".5s">
-                <div class="testimonial-item">
-                    <div class="testimonial-content rounded mb-4 p-4">
-                        <p class="fs-5 m-0">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam quis tempor.</p>
-                    </div>
-                    <div class="d-flex align-items-center  mb-4" style="padding: 0 0 0 25px;">
-                        <div class="position-relative">
-                            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle py-2" alt="">
-                            <div class="position-absolute" style="top: 33px; left: -25px;">
-                                <i class="fa fa-quote-left rounded-pill bg-primary text-dark p-3"></i>
-                            </div>
-                        </div>
-                        <div class="ms-3">
-                            <h4 class="mb-0">Client Name</h4>
-                            <p class="mb-1">Profession</p>
-                            <div class="d-flex">
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-content rounded mb-4 p-4">
-                        <p class="fs-5 m-0">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam quis tempor.</p>
-                    </div>
-                    <div class="d-flex align-items-center  mb-4" style="padding: 0 0 0 25px;">
-                        <div class="position-relative">
-                            <img src="img/testimonial-2.jpg" class="img-fluid rounded-circle py-2" alt="">
-                            <div class="position-absolute" style="top: 33px; left: -25px;">
-                                <i class="fa fa-quote-left rounded-pill bg-primary text-dark p-3"></i>
-                            </div>
-                        </div>
-                        <div class="ms-3">
-                            <h4 class="mb-0">Client Name</h4>
-                            <p class="mb-1">Profession</p>
-                            <div class="d-flex">
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-content rounded mb-4 p-4">
-                        <p class="fs-5 m-0">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam quis tempor.</p>
-                    </div>
-                    <div class="d-flex align-items-center  mb-4" style="padding: 0 0 0 25px;">
-                        <div class="position-relative">
-                            <img src="img/testimonial-3.jpg" class="img-fluid rounded-circle py-2" alt="">
-                            <div class="position-absolute" style="top: 33px; left: -25px;">
-                                <i class="fa fa-quote-left rounded-pill bg-primary text-dark p-3"></i>
-                            </div>
-                        </div>
-                        <div class="ms-3">
-                            <h4 class="mb-0">Client Name</h4>
-                            <p class="mb-1">Profession</p>
-                            <div class="d-flex">
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-content rounded mb-4 p-4">
-                        <p class="fs-5 m-0">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam quis tempor.</p>
-                    </div>
-                    <div class="d-flex align-items-center  mb-4" style="padding: 0 0 0 25px;">
-                        <div class="position-relative">
-                            <img src="img/testimonial-4.jpg" class="img-fluid rounded-circle py-2" alt="">
-                            <div class="position-absolute" style="top: 33px; left: -25px;">
-                                <i class="fa fa-quote-left rounded-pill bg-primary text-dark p-3"></i>
-                            </div>
-                        </div>
-                        <div class="ms-3">
-                            <h4 class="mb-0">Client Name</h4>
-                            <p class="mb-1">Profession</p>
-                            <div class="d-flex">
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                                <small class="fas fa-star text-primary me-1"></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testiminial End -->
-
-    <!-- Call To Action Start -->
-    <div class="container-fluid py-5 call-to-action wow fadeInUp" data-wow-delay=".3s" style="margin: 6rem 0;">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <img src="img/action.jpg" class="img-fluid w-100 rounded-circle p-5" alt="">
-                </div>
-                <div class="col-lg-6 my-auto">
-                    <div class="text-start mt-4">
-                        <h1 class="pb-4 text-white">Sign Up To Our Newsletter To Get The Latest Offers</h1>
-                    </div>
-                    <form method="post" action="index.html">
-                        <div class="form-group">
-                            <div class="d-flex call-btn">
-                                <input type="search"
-                                    class="form-control py-3 px-4 w-100 border-0 rounded-0 rounded-end rounded-pill"
-                                    name="search-input" value="" placeholder="Enter Your Email Address"
-                                    required="Please enter a valid email" />
-                                <button type="email" value="Search Now!"
-                                    class="btn btn-primary border-0 rounded-pill rounded rounded-start px-5">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Call To Action End -->
 @endsection
 
 

@@ -4,7 +4,7 @@
         <div class="row g-4 footer-inner">
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="text-white fw-bold mb-4">About PestKit.</h4>
+                    <h4 class="text-white fw-bold mb-4">About Bricohub.</h4>
                     <p>Nostrud exertation ullamco labor nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
                     <p class="mb-0"><a class="" href="#">PestKit </a> &copy; 2023 All Right Reserved.</p>
                 </div>
@@ -51,7 +51,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-                <a href="#" class="text-primary mb-0 display-6">Pest<span class="text-white">Kit</span><i class="fa fa-spider text-primary ms-2"></i></a>
+                <a href="#" class="text-primary mb-0 display-6">Brico<span class="text-white">Hub</span><i class=" text-primary ms-2"></i></a>
             </div>
             <div class="col-md-4 copyright-btn text-center text-md-start mb-3 mb-md-0 flex-shrink-0">
                 <a class="btn btn-primary rounded-circle me-3 copyright-icon" href=""><i class="fab fa-twitter"></i></a>
