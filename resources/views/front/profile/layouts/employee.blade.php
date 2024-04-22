@@ -134,6 +134,7 @@
                 @endif
 
 
+
                 <!-- pagination for services -->
                 <div class="d-flex justify-content-center  mt-3">
                     {{ $services->links() }}
@@ -221,6 +222,7 @@
                             </div>
                         </div>
                         <!-- Display reservations for the service -->
+                    @if(auth::user()->id === $user->id)
                         @if($service->reservations->isNotEmpty())
                             <div class="row justify-content-center mb-3">
                                 <div class="col-md-12 col-xl-10">
@@ -350,8 +352,10 @@
                                 </div>
                             </div>
                         @endif
+                    @endif
                     @endforeach
                 </div>
+
             </section>
         </div>
     </div>

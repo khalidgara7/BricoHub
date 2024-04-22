@@ -62,7 +62,8 @@
                     <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
                         <div class="rounded team-item">
                             <img src="{{ asset('storage/images/employee/' . $user->employee->image) }}"
-                                class="img-fluid w-100 rounded-top border border-bottom-0" alt="">
+                                 class="img-fluid w-100 rounded-top border border-bottom-0" alt="Employee Image"
+                                 style="height: 200px; object-fit: cover;">
                             <div class="team-content bg-primary text-dark text-center py-3">
                                 <span class="fs-4 fw-bold">{{ $user->name }}</span>
                                 <p class="text-muted mb-0">{{ $user->employee->skill }}</p>

@@ -1,7 +1,7 @@
 <@extends('Admin.layouts.master')
 
 @section('title')
-    Bricohup | Admin Dashboard 
+    Bricohup | Admin Dashboard
 @endsection
 
 @section('content')
@@ -152,7 +152,7 @@
                                 </div><!-- .card -->
                             </div>
 
-                            <!-- .Users -->                        
+                            <!-- .Users -->
                             <div class="col-md-6 col-xxl-4">
                                 <div class="card card-bordered card-full">
                                     <div class="card-inner border-bottom">
@@ -179,7 +179,7 @@
                                         @endforeach
                                     </ul>
                                     <div class="pagination justify-content-center mt-5">
-                                        {{ $users->links() }} 
+                                        {{ $users->links() }}
                                     </div>
                                 </div><!-- .card -->
                             </div><!-- .user -->
@@ -258,7 +258,7 @@
                                             <div class="nk-tb-col"><span>create-at</span></div>
                                         </div>
                                         @foreach ($categories as $category)
-                                            
+
                                         <div class="nk-tb-item">
                                             <div class="nk-tb-col">
                                                 <div class="align-center">
@@ -281,9 +281,15 @@
                                                         src="{{ asset('storage/images/category/' . $category->image) }}"
                                                         alt="" class="thumb">
                                                 </span>
-                                            </div> 
+                                            </div>
                                             <div class="nk-tb-col">
-                                                <span class="tb-sub tb-amount">{{$category->created_at->format('Y-m-d')}} <span></span></span>
+                                                <span class="tb-sub tb-amount">
+                                                    @if($category->created_at)
+                                                        {{$category->created_at->format('Y-m-d')}}
+                                                    @else
+                                                        N/A
+                                                    @endif
+                                                </span>
                                             </div>
                                         </div>
                                         @endforeach
@@ -296,5 +302,5 @@
             </div>
         </div>
     </div>
-    <!-- content @e -->  
+    <!-- content @e -->
 @endsection

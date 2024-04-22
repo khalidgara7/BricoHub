@@ -6,6 +6,8 @@
 
 @section('content')
 
+<div class="row justify-content-center">
+
     <div class="col-lg-8 ">
         <div class="card card-bordered h-100">
             <div class="card-inner">
@@ -69,4 +71,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

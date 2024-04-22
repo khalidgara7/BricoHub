@@ -12,7 +12,7 @@ class ListServicesController extends Controller
     //
     public function listServices()
     {
-        $services = Service::paginate(8);
+        $services = Service::paginate(6);
         $categories = Category::all();
         return view('front.listservices', compact('services', 'categories'));
     }

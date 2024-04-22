@@ -21,7 +21,7 @@
                     @endif
                     <a href="{{ route('list-categories') }}" class="nav-item nav-link">Categories</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link " data-bs-toggle="dropdown">Services</a>
+                        <a href="#" class="nav-link " data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0 bg-primary">
                             <a href="{{ route('employee.list') }}" class="dropdown-item">Employees</a>
                             <a href="{{ route('list-services') }}" class="dropdown-item">Services</a>
