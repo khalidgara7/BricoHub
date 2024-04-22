@@ -11,15 +11,8 @@ class EmployeurProfileController extends Controller
 {
     public function index()
     {
+            $reservations = Reservation::where('employeur_id', auth()->user()->id)->get();
 
-        // if (Auth::user()->role == 'employee') {
-        //     $services = Offer::where('user_id', auth()->user()->employee->user_id)->get();
-        // }elseif (Auth::user()->role == 'employeur') {
-        // }
-            $offers = Reservation::where('employeur_id', auth()->user()->employeur)->get();
-            // $services = Service::where('user_id', auth()->user()->employee->user_id)->get();
-
-
-        return view('front.profile.layouts.employeur',compact('offers'));
+        return view('front.profile.layouts.employeur',compact('reservations'));
     }
 }

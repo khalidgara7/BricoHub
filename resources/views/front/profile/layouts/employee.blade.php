@@ -171,11 +171,11 @@
                                                 </div>
                                                 <div class="mt-1 mb-0 text-muted small">
                                                     <p class="mb-2 text-muted "> <?php
-                                                                                     $description = $service->description;
-                                                                                     $words = str_word_count($description, 1);
-                                                                                     $shortDescription = implode(' ', array_slice($words, 0, 10));
-                                                                                     echo $shortDescription . (count($words) > 10 ? '...' : '');
-                                                                                     ?></p>
+                                                         $description = $service->description;
+                                                         $words = str_word_count($description, 1);
+                                                         $shortDescription = implode(' ', array_slice($words, 0, 10));
+                                                         echo $shortDescription . (count($words) > 10 ? '...' : '');
+                                                         ?></p>
                                                 </div>
 
                                                 <p class="text-truncate mb-4 mb-md-0">
