@@ -18,7 +18,7 @@
             <div class="col-md-4 eml-mob">
                 <ul>
                     <li><i class="fas fa-envelope"></i>{{ auth()->user()->email }}</li>
-                    
+
                 </ul>
             </div>
             <div class="col-md-4 d-flex map-mark">
@@ -42,7 +42,7 @@
                         <div class="col-md-12 home-dat">
                             <div class="detal-jumbo">
                                 <h3>Hello I'm a {{ auth()->user()->name }} </h3>
-                                <p> 
+                                <p>
                                     "I am looking for an employee to do some work for me."
                                      </p>
                             </div>
@@ -50,82 +50,53 @@
                     </div>
                 </div>
             </div>
-            <section style="background-color:  #eee;" class="pt-4">
-
-                <h2 class="text-center "> Offers </h2>
-                <div class="container ">
-                        <div class="row justify-content-center mb-3">
-                            <div class="col-md-12 col-xl-10">
-                                <div class="card shadow-0 border rounded-3">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                                                <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                                                    <img src=""
-                                                        class="w-100" />
-                                                    <a href="#!">
-                                                        <div class="hover-overlay">
-                                                            <div class="mask"
-                                                                style="background-color: rgba(253, 253, 253, 0.15);">
-                                                            </div>
-                                                        </div>
-                                                    </a>
+            <!-- Reservations -->
+            <section style="background-color: #eee;" class="pt-4">
+                <h2 class="text-center">Reservations ({{ count($reservations) }})</h2>
+                <div class="container">
+                    @if(count($reservations) > 0)
+                        @foreach ($reservations as $reservation)
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-md-12 col-xl-10">
+                                    <div class="card shadow-0 border rounded-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Reservation Details</h5>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p><strong>Status:</strong> {{ $reservation->status }}</p>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6 col-xl-6">
-                                                <h5>adzazdazdzad</h5>
-                                                <div class="d-flex flex-row">
-                                                    <div class="text-danger mb-1 me-2">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <span>310</span>
+                                                <div class="col-md-3">
+                                                    <p><strong>Price:</strong> {{ $reservation->price }} MAD</p>
                                                 </div>
-                                                <div class="mt-1 mb-0 text-muted small">
-                                                    <p class="mb-2 text-muted "> azdadzazddzdazzdadzazdadzazdadzadz</p>
+                                                <div class="col-md-3">
+                                                    <p><strong>Date:</strong> {{ $reservation->date_reservation }}</p>
                                                 </div>
-
-                                                <p class="text-truncate mb-4 mb-md-0">
-                                                    There are many variations of passages of Lorem Ipsum
-                                                    available, but the
-                                                    majority have suffered alteration in some form, by
-                                                    injected
-                                                    humour, or
-                                                    randomised words which don't look even slightly
-                                                    believable.
-                                                </p>
-                                            </div>
-                                            <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                                                <div class="d-flex flex-row align-items-center mb-1">
-                                                    <h4 class="mb-1 me-1">aeazad</h4>
-                                                    <span class="text-danger"><s>dazazdazdzda</s></span>
-                                                </div>
-
-                                                <h6 class="text-success">dazazdadzazd</h6>
-
-                                                <div class="d-flex flex-column mt-4">
-                                                    <a href=""
-                                                        class="btn btn-primary btn-sm"> Edit </a>
-
-                                                    <form class="d-flex flex-column mt-4"
-                                                        action="" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-outline-danger btn-sm mt-2" type="submit">
-                                                            Delete
-                                                        </button>
-                                                    </form>
+                                                <div class="col-md-3">
+                                                    <p><strong>Employee Name:</strong> {{ $reservation->service->employee->user->name }}</p>
+                                                    @if($reservation->status == 'accepted')
+                                                        <p><strong>Employeur Phone Number:</strong> {{ $reservation->service->employee->phone_number }}</p>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endforeach
+                    @else
+                        <div class="row justify-content-center mb-3">
+                            <div class="col-md-12 col-xl-10">
+                                <div class="card shadow-0 border rounded-3 mb-3">
+                                    <div class="card-body">
+                                        <p class="text-center">No reservations found.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    @endif
                 </div>
             </section>
+            <!-- end reservation -->
         </div>
     </div>
 @endsection

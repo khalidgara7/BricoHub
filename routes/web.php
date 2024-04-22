@@ -100,5 +100,5 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-
-
+// Route for liveSearch
+Route::get('/live-search',[\App\Http\Controllers\LiveSerachController::class, 'liveSearch'])->name('live-search');
