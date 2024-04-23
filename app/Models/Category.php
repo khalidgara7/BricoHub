@@ -8,6 +8,6 @@ use mysql_xdevapi\Table;
 
 class Category extends Model
 {
-    protected $table = 'categories';
+    protected  $table = 'categories';
     protected $fillable = ['name', 'description', 'image'];
 }
