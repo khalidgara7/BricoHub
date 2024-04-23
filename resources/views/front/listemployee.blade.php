@@ -61,6 +61,7 @@
                 @foreach ($users as $user)
                     <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
                         <div class="rounded team-item">
+                            @if ($user->employee) <!-- Check if user has associated employee -->
                             <img src="{{ asset('storage/images/employee/' . $user->employee->image) }}"
                                  class="img-fluid w-100 rounded-top border border-bottom-0" alt="Employee Image"
                                  style="height: 200px; object-fit: cover;">
@@ -68,9 +69,15 @@
                                 <span class="fs-4 fw-bold">{{ $user->name }}</span>
                                 <p class="text-muted mb-0">{{ $user->employee->skill }}</p>
                             </div>
+                            @else
+                                <!-- Handle case where user has no associated employee -->
+                                <div class="team-content bg-primary text-dark text-center py-3">
+                                    <span class="fs-4 fw-bold">{{ $user->name }}</span>
+                                    <p class="text-muted mb-0">No employee data available</p>
+                                </div>
+                            @endif
                             <div class="team-icon d-flex flex-column ">
-                                <a href="#" class="btn btn-primary border-0 mb-2"><i
-                                        class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-twitter"></i></a>
                                 <a href="#" class="btn btn-primary border-0 mb-2"><i class="fab fa-instagram"></i></a>
                                 <a href="#" class="btn btn-primary border-0"><i class="fab fa-linkedin-in"></i></a>
@@ -78,8 +85,8 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
+
         </div>
     </div>
     <!-- Team End -->

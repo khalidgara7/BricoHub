@@ -53,9 +53,10 @@ class User extends Authenticatable
     {
         return $this->roles()->where('name', $role)->exists();
     }
+
     public function Employee()
     {
-        return $this->hasOne(Employee::class, 'user_id');
+        return $this->hasOne(Employee::class, 'user_id', 'id');
     }
 
     public function Employeur()
@@ -63,7 +64,8 @@ class User extends Authenticatable
         return $this->hasOne(Employeur::class, 'user_id');
     }
 
-    public function reservations()    {
+    public function reservations()
+    {
         return $this->hasMany(Reservation::class);
     }
 
