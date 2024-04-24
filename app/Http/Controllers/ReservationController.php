@@ -27,7 +27,7 @@ class ReservationController extends Controller
             return redirect()->back()->with('error', $message);        }
 
         $user = Auth::user();
-
+/*dd($user->id);/**/
         $service->reservations()->create([
             'employeur_id' => $user->id,
             'status' => 'pending',

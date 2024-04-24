@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    BricoHub
+   Reserver services
 @endsection
 
 @section('content')

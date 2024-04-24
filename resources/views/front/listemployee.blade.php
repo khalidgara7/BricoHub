@@ -10,34 +10,33 @@
         <div class="container py-5">
             <div class="bg-light px-4 py-5 rounded">
                 <div class="text-center">
-                    <h1 class="display-5 mb-5">Find Your Brico Talent</h1>
+                    <h1 class="display-5 mb-5">Find Your Brico Employee</h1>
                 </div>
-                <form class="text-center mb-4" action="#">
+                <form id="searchEmployee" class="text-center mb-4" >
                     <div class="row g-4">
                         <div class="col-xl-10 col-lg-12">
                             <div class="row g-4">
                                 <div class="col-md-6 col-xl-3">
-                                    <select class="form-select p-3 border-0">
-                                        <option value="Type Of Service" class="">Type Of Service</option>
-                                        <option value="Brico Control-2">Brico Control-2</option>
-                                        <option value="Brico Control-3">Brico Control-3</option>
-                                        <option value="Brico Control-4">Brico Control-4</option>
-                                        <option value="Brico Control-5">Brico Control-5</option>
+                                    <select id="category_id" name="category_id" class="form-select p-3 border-0">
+                                        <option value="0" class="">Select Category</option>
+                                        {{--@foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach--}}
                                     </select>
                                 </div>
                                 <div class="col-md-6 col-xl-3">
-                                    <input type="text" class="form-control p-3 border-0" placeholder="Name">
+                                    <input i="nameEmployee" type="text" class="form-control p-3 border-0" placeholder="Name">
                                 </div>
                                 <div class="col-md-6 col-xl-3">
-                                    <input type="text" class="form-control p-3 border-0" placeholder="Phone">
+                                    <input id="phoneInput" type="text" class="form-control p-3 border-0" placeholder="Phone">
                                 </div>
                                 <div class="col-md-6 col-xl-3">
-                                    <input type="email" class="form-control p-3 border-0" placeholder="Email">
+                                    <input id="emailInput" type="email" class="form-control p-3 border-0" placeholder="Email">
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-12">
-                            <input type="button" class="btn btn-primary w-100 p-3 border-0" value="GET STARTED">
+                            <input id="searchButton" type="button" class="btn btn-primary w-100 p-3 border-0" value="GET STARTED">
                         </div>
                     </div>
                 </form>
@@ -57,6 +56,7 @@
                 </h5>
                 <h1 class="display-5 w-50 mx-auto">Our Members</h1>
             </div>
+            @if($users->count() > 0)
             <div class="row g-5">
                 @foreach ($users as $user)
                     <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
@@ -85,6 +85,11 @@
                         </div>
                     </div>
                 @endforeach
+                    @else
+                        <div class="text-center">
+                            <p>There are no Employee available.</p>
+                        </div>
+            @endif
             </div>
 
         </div>

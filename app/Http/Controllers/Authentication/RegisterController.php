@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Authentication;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\regesterRequest;
+use App\Models\Employeur;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,6 +30,10 @@ class RegisterController extends Controller
             if ($user->isEmployee()) {
                 return redirect()->route('Employee.form');
             } elseif ($user->isEmployeur()) {
+                $emplouer = Employeur::create([
+                    'user_id' => $user->id,
+                ]);
+                $emplouer->save();
                 return redirect('/');
             }
         } else {

@@ -12,6 +12,8 @@ use App\Http\Controllers\frontOffice\categories\ListCategoriesController;
 use App\Http\Controllers\frontOffice\employees\ListEmployeeController;
 use App\Http\Controllers\frontOffice\services\ListServicesController;
 use App\Http\Controllers\frontOffice\services\ServicesController;
+use App\Http\Controllers\LiveSerachController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -92,13 +94,13 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/service/{service}', [ServicesController::class, 'show'])->name('service.show');
     });
     // reservation routes
-    Route::post('/service/{service}/reserve', [App\Http\Controllers\ReservationController::class, 'reserve'])->name('reserve.service');
+    Route::post('/service/{service}/reserve', [ReservationController::class, 'reserve'])->name('reserve.service');
 
     Route::middleware(['isEmployee'])->group(function() {
-        Route::post('/reservations/{reservation}', [\App\Http\Controllers\ReservationController::class, 'updateStatus'])->name('reservations.updateStatus');
+        Route::post('/reservations/{reservation}', [ReservationController::class, 'updateStatus'])->name('reservations.updateStatus');
     });
 });
 
 
 // Route for liveSearch
-Route::get('/live-search',[\App\Http\Controllers\LiveSerachController::class, 'liveSearch'])->name('live-search');
+Route::get('/live-search',[LiveSerachController::class, 'liveSearch'])->name('live-search');

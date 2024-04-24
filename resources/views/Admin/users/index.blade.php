@@ -302,8 +302,6 @@
                                                     </div>
                                                     <div class="nk-tb-col tb-col-sm"><span class="sub-text">Email</span>
                                                     </div>
-                                                    <div class="nk-tb-col tb-col-md"><span class="sub-text">Phone</span>
-                                                    </div>
                                                     <div class="nk-tb-col"><span class="sub-text">Action</span></div>
                                                 </div>
                                                 <!-- .nk-tb-item -->
@@ -334,12 +332,12 @@
                                                         </div>
                                                         <div class="nk-tb-col tb-col-sm">
                                                             <span>{{$user->email}}</span>
-                                                        </div>
+                                                        </div>{{--
                                                         <div class="nk-tb-col tb-col-md">
                                                             @if($user->hasRole('employee'))
                                                                 <p>{{ $user->employee->phone_number }}</p>
                                                             @endif
-                                                        </div>
+                                                        </div>--}}
                                                         <div class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-2">
                                                                 <li class="nk-tb-action-hidden">
